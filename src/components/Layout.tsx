@@ -5,11 +5,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'ServiceBot Solutions', href: '/servicebot' },
-  { name: 'Topics', href: '/topics' },
-  { name: 'Our Values', href: '/values' },
+  { name: 'About', href: '/about' },
   { name: 'Vision & Mission', href: '/vision-mission' },
+  { name: 'Topics', href: '/topics' },
+  { name: 'Services', href: '/services' },
+  { name: 'Podcast', href: '/podcast' },
+  { name: 'Guests', href: '/guests' }
 ]
 
 export default function Layout({ children }: { children: React.ReactNode }) {
