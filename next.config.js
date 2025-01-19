@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure trailing slashes for GitHub Pages
+  trailingSlash: true,
 }
 
 module.exports = nextConfig 
