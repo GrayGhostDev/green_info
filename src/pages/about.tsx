@@ -133,27 +133,33 @@ export default function About() {
       </div>
 
       {/* Vision & Mission Section */}
-      <div className="bg-white py-24 sm:py-32">
+      <div className="relative overflow-hidden bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:pr-8 lg:pt-4">
               <div className="lg:max-w-lg fade-in-left">
-                <h2 className="text-base font-semibold leading-7 text-primary-600">Our Vision</h2>
-                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 className="text-base font-semibold leading-7 text-primary-400">Our Vision</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Leading Green Innovation
                 </p>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <p className="mt-6 text-lg leading-8 text-gray-300">
                   To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
                 </p>
               </div>
             </div>
             <div className="fade-in-right">
               <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-primary-600">Our Mission</h2>
-                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 className="text-base font-semibold leading-7 text-primary-400">Our Mission</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Enhancing Communities
                 </p>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <p className="mt-6 text-lg leading-8 text-gray-300">
                   To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology.
                 </p>
               </div>
@@ -163,14 +169,20 @@ export default function About() {
       </div>
 
       {/* Values Section */}
-      <div className="bg-primary-50 py-24 sm:py-32">
+      <div className="relative overflow-hidden bg-black py-24 sm:py-32">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center fade-in">
-            <h2 className="text-base font-semibold leading-7 text-primary-600">Our Values</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-base font-semibold leading-7 text-primary-400">Our Values</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               What Drives Us Forward
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               Our core values shape everything we do, from project execution to community engagement.
             </p>
           </div>
@@ -183,11 +195,11 @@ export default function About() {
                     index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
                   }`}
                 >
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
                     {value.icon}
                     {value.name}
                   </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
                     <p className="flex-auto">{value.description}</p>
                   </dd>
                 </div>
@@ -198,9 +210,15 @@ export default function About() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-white">
+      <div className="bg-black">
         <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-primary-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16 fade-in">
+          <div className="relative isolate overflow-hidden bg-gray-900/50 backdrop-blur-sm px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16 fade-in">
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundSize: '60px 60px'
+              }} />
+            </div>
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Join us in creating sustainable communities
             </h2>
@@ -210,7 +228,7 @@ export default function About() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="mailto:rlb01@svbots.com"
-                className="hover-scale rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="hover-scale rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Contact Us
               </a>
@@ -218,19 +236,6 @@ export default function About() {
                 Learn More <span aria-hidden="true">→</span>
               </a>
             </div>
-            <svg
-              viewBox="0 0 1024 1024"
-              className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-              aria-hidden="true"
-            >
-              <circle cx="512" cy="512" r="512" fill="url(#gradient)" fillOpacity="0.15" />
-              <defs>
-                <radialGradient id="gradient">
-                  <stop stopColor="white" />
-                  <stop offset="1" stopColor="white" />
-                </radialGradient>
-              </defs>
-            </svg>
           </div>
         </div>
       </div>

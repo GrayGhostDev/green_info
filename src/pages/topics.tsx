@@ -178,17 +178,22 @@ export default function Topics() {
       </div>
 
       {/* Topics Grid - Enhanced */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
-        <div className="absolute inset-0 bg-grid-primary-900/[0.03] -z-10" />
+      <div className="relative overflow-hidden bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center rounded-full bg-primary-50 px-6 py-2 text-primary-600 ring-1 ring-inset ring-primary-600/20">
+            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
               <span className="text-base font-semibold uppercase tracking-wider">Knowledge Hub</span>
             </div>
-            <p className="mt-6 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl [text-wrap:balance]">
+            <p className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl [text-wrap:balance]">
               Sustainable Urban Development
             </p>
-            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
+            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-300">
               Discover our extensive collection of resources and insights on sustainable technology, urban planning, and green innovation.
             </p>
           </div>
@@ -197,24 +202,24 @@ export default function Topics() {
               {topics.map((topic, index) => (
                 <div
                   key={topic.title}
-                  className={`group relative rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                     index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
                   }`}
                 >
                   <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-white">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
                       {topic.icon}
                     </span>
                   </div>
                   <div className="pt-4">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
                       {topic.title}
                     </h3>
-                    <p className="mt-4 text-base text-gray-500">{topic.description}</p>
+                    <p className="mt-4 text-base text-gray-300">{topic.description}</p>
                     <div className="mt-6">
                       <a
                         href="#"
-                        className="inline-flex items-center text-primary-600 hover:text-primary-500 transition-all duration-300 group-hover:gap-2"
+                        className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-all duration-300 group-hover:gap-2"
                       >
                         Learn more
                         <svg
@@ -240,18 +245,18 @@ export default function Topics() {
       </div>
 
       {/* Newsletter Section - Enhanced */}
-      <div className="relative bg-primary-900">
+      <div className="relative bg-black">
         <div className="relative h-80 overflow-hidden md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
           <img
             className="h-full w-full object-cover"
             src="/images/greenInfo_Logo.pdf.png"
             alt="Newsletter background"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-800/90 to-primary-800/50 mix-blend-multiply backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-900/90 to-gray-800/50 mix-blend-multiply backdrop-blur-sm" />
         </div>
         <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
           <div className="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
-            <div className="inline-flex items-center rounded-full bg-primary-800 px-6 py-2 text-gray-300 ring-1 ring-inset ring-white/20">
+            <div className="inline-flex items-center rounded-full bg-gray-800 px-6 py-2 text-gray-300 ring-1 ring-inset ring-white/20">
               <span className="text-base font-semibold uppercase tracking-wider">Stay Informed</span>
             </div>
             <p className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl [text-wrap:balance]">
@@ -278,7 +283,7 @@ export default function Topics() {
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-xl border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white shadow-sm transition-all duration-300 hover:bg-primary-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                  className="inline-flex items-center justify-center rounded-xl border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white shadow-sm transition-all duration-300 hover:bg-primary-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-black"
                 >
                   Subscribe
                 </button>
