@@ -74,14 +74,31 @@ const categories = [
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const nextImage = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentImageIndex((prev) => (prev === backgroundImages.length - 1 ? 0 : prev + 1))
+    setTimeout(() => setIsTransitioning(false), 1500) // Match transition duration
+  }
+
+  const prevImage = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentImageIndex((prev) => (prev === 0 ? backgroundImages.length - 1 : prev - 1))
+    setTimeout(() => setIsTransitioning(false), 1500) // Match transition duration
+  }
+
+  const goToImage = (index: number) => {
+    if (isTransitioning || index === currentImageIndex) return
+    setIsTransitioning(true)
+    setCurrentImageIndex(index)
+    setTimeout(() => setIsTransitioning(false), 1500) // Match transition duration
+  }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000) // Change image every 5 seconds
-
+    const timer = setInterval(nextImage, 7000) // Changed from 5000 to 7000ms
     return () => clearInterval(timer)
   }, [])
 
@@ -97,8 +114,10 @@ export default function Home() {
         {backgroundImages.map((image, index) => (
           <div
             key={image}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-40' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1500 ease-in-out transform ${
+              index === currentImageIndex 
+                ? 'opacity-30 scale-100' // Changed opacity from 40 to 30
+                : 'opacity-0 scale-105'
             }`}
           >
             <img
@@ -109,6 +128,43 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
           </div>
         ))}
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevImage}
+          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/50 hover:text-white/90 transition-colors z-20"
+          disabled={isTransitioning}
+        >
+          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={nextImage}
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/50 hover:text-white/90 transition-colors z-20"
+          disabled={isTransitioning}
+        >
+          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+          {backgroundImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToImage(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentImageIndex
+                  ? 'bg-white w-4'
+                  : 'bg-white/50 hover:bg-white/70'
+              }`}
+              disabled={isTransitioning}
+            />
+          ))}
+        </div>
+
         <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary-600/10 px-4 py-1.5 text-sm font-medium text-primary-400 ring-1 ring-inset ring-primary-600/20">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
@@ -50,7 +50,28 @@ const values = [
   }
 ]
 
+const backgroundImages = [
+  "/images/Fwd_ GIUS PICS/20241218_152321.jpg",
+  "/images/Fwd_ GIUS PICS/20241218_150055.jpg",
+  "/images/Fwd_ GIUS PICS/20241218_152304.jpg"
+]
+
 export default function About() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const nextImage = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentImageIndex((prev) => (prev === backgroundImages.length - 1 ? 0 : prev + 1))
+    setTimeout(() => setIsTransitioning(false), 1500)
+  }
+
+  useEffect(() => {
+    const timer = setInterval(nextImage, 7000)
+    return () => clearInterval(timer)
+  }, [])
+
   useIntersectionObserver({
     targetSelector: '.fade-in',
     threshold: 0.2
@@ -80,21 +101,32 @@ export default function About() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <div className="relative min-h-[60vh] bg-gradient-to-br from-primary-700/80 via-primary-600/80 to-primary-800/80">
-        <div className="absolute inset-0 transform transition-transform duration-[3s] hover:scale-102">
-          <img
-            src="/images/greenInfo_Logo.pdf.png"
-            alt="Background Logo"
-            className="w-full h-full object-cover opacity-25"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/50 to-primary-800/50 backdrop-blur-[2px]" />
-        </div>
-        <div className="relative mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h1 className="fade-in text-4xl font-bold tracking-tight text-white sm:text-6xl">About Us</h1>
-            <p className="fade-in mt-6 text-xl leading-8 text-gray-300">
-              At Green Info Urban Style DBA Virtual Management Resource Group, our focus is on bridging the gap between urban communities and green space initiatives.
+      <div className="relative min-h-screen bg-black">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={image}
+            className={`absolute inset-0 transition-all duration-1500 ease-in-out transform ${
+              index === currentImageIndex 
+                ? 'opacity-30 scale-100'
+                : 'opacity-0 scale-105'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Background ${index + 1}`}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+          </div>
+        ))}
+
+        <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              About Us
+            </h1>
+            <p className="mt-6 text-xl text-gray-300">
+              At Green Info Urban Style, we're dedicated to creating sustainable urban environments through innovative solutions and community engagement.
             </p>
           </div>
         </div>

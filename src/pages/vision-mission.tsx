@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
@@ -43,7 +43,28 @@ const commitments = [
   'Delivering exceptional value'
 ]
 
+const backgroundImages = [
+  "/images/Fwd_ GIUS PICS/20241218_151736.jpg",
+  "/images/Fwd_ GIUS PICS/20241019_134006.jpg",
+  "/images/Fwd_ GIUS PICS/20241218_152304.jpg"
+]
+
 export default function VisionMission() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const nextImage = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentImageIndex((prev) => (prev === backgroundImages.length - 1 ? 0 : prev + 1))
+    setTimeout(() => setIsTransitioning(false), 1500)
+  }
+
+  useEffect(() => {
+    const timer = setInterval(nextImage, 7000)
+    return () => clearInterval(timer)
+  }, [])
+
   useIntersectionObserver({
     targetSelector: '.fade-in',
     threshold: 0.2
@@ -73,26 +94,33 @@ export default function VisionMission() {
 
   return (
     <Layout>
-      {/* Hero Section - Enhanced */}
-      <div className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
-        <div className="absolute inset-0">
-          <img
-            src="/images/greenInfo_Logo.pdf.png"
-            alt="Background Logo"
-            className="h-full w-full object-cover opacity-15 mix-blend-overlay transform scale-110 rotate-6"
-          />
-          <div className="absolute inset-0 bg-gradient-radial from-primary-900/90 via-primary-800/90 to-primary-900/95" />
-        </div>
-        <div className="relative flex min-h-[70vh] items-center">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-            <div className="max-w-2xl backdrop-blur-sm bg-primary-900/20 p-8 rounded-2xl border border-primary-500/10">
-              <h1 className="fade-in text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl [text-wrap:balance]">
-                Vision & Mission
-              </h1>
-              <p className="fade-in mt-6 text-lg leading-8 text-gray-300 md:text-xl">
-                Our commitment to creating sustainable, healthy environments through innovation and community engagement.
-              </p>
-            </div>
+      <div className="relative min-h-screen bg-black">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={image}
+            className={`absolute inset-0 transition-all duration-1500 ease-in-out transform ${
+              index === currentImageIndex 
+                ? 'opacity-30 scale-100'
+                : 'opacity-0 scale-105'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Background ${index + 1}`}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+          </div>
+        ))}
+
+        <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              Vision & Mission
+            </h1>
+            <p className="mt-6 text-xl text-gray-300">
+              Leading the way in sustainable urban development and community empowerment through innovative green solutions.
+            </p>
           </div>
         </div>
       </div>
