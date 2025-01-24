@@ -47,73 +47,37 @@ export default function Home() {
     <Layout>
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
         {/* Background Logo */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src="/images/greenInfo_Logo.pdf.png"
             alt="Background Logo"
-            className="w-full h-full object-cover opacity-75"
+            className="w-full h-full object-contain opacity-95 scale-125 transform rotate-6 brightness-125 hover:brightness-150 transition-all duration-1000"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/90 backdrop-blur-[2px]" />
         </div>
 
         {/* Content */}
-        <div className="relative">
-          {/* Hero Section with Topics */}
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex flex-col items-center">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl flex flex-wrap justify-center gap-x-4 overflow-hidden">
-                  <div className="flex animate-slideInLeft opacity-0 [animation-fill-mode:forwards]">
-                    <span className="whitespace-nowrap">Bridging Urban</span>
-                    <span className="ml-4">with</span>
-                  </div>
-                  <div className="flex animate-slideInRight opacity-0 [animation-fill-mode:forwards]">
-                    <span className="whitespace-nowrap">Communities</span>
-                    <span className="ml-4 text-primary-400">Green Solutions</span>
-                  </div>
-                </h1>
-                <p className="mt-6 text-xl text-gray-300 text-center animate-fadeIn opacity-0 [animation-delay:1000ms] [animation-fill-mode:forwards]">
-                  Empowering sustainable development through innovative technology and community engagement.
-                </p>
-                <div className="mt-10 flex gap-x-6 animate-fadeIn opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards]">
-                  <a
-                    href="/services"
-                    className="rounded-xl bg-primary-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-                  >
-                    Our Services
-                  </a>
-                  <a
-                    href="/about"
-                    className="rounded-xl bg-white/10 px-5 py-3 text-base font-semibold text-white hover:bg-white/20"
-                  >
-                    Learn More
-                  </a>
-                </div>
-
-                {/* Topics Section */}
-                <div className="mt-24 w-full">
-                  <div className="mx-auto max-w-2xl text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Topics We Cover</h2>
-                    <p className="mt-2 text-lg leading-8 text-gray-300">
-                      Explore our diverse range of sustainability and urban development topics.
-                    </p>
-                  </div>
-                  <div className="mx-auto max-w-7xl">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-                      {categories.map((category, index) => (
-                        <div key={index} className="flex flex-col bg-white/5 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 transition-colors">
-                          <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
-                            <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-primary-600">
-                              {category.icon}
-                            </div>
-                            {category.name}
-                          </dt>
-                        </div>
-                      ))}
-                    </dl>
-                  </div>
-                </div>
-              </div>
+        <div className="relative h-screen flex flex-col justify-center items-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-white mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+              Bridging Urban Communities
+            </h1>
+            <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
+              Connecting communities with sustainable solutions that promote environmental awareness and green living.
+            </p>
+            <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
+              <a
+                href="/services"
+                className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm"
+              >
+                Our Services
+              </a>
+              <a
+                href="/about"
+                className="rounded-xl bg-black/50 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/20 hover:bg-black/70 transition-all duration-300 hover:shadow-black/40 backdrop-blur-sm"
+              >
+                About Us
+              </a>
             </div>
           </div>
         </div>
