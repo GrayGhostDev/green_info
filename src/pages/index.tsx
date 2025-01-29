@@ -82,42 +82,41 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
-        {/* Brick Pattern Background */}
-        <div className="absolute inset-0 opacity-[0.6]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='84' height='88' viewBox='0 0 84 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='topShade' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23000000;stop-opacity:0.6'/%3E%3Cstop offset='100%25' style='stop-color:%23000000;stop-opacity:0'/%3E%3C/linearGradient%3E%3ClinearGradient id='leftShade' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23000000;stop-opacity:0.6'/%3E%3Cstop offset='100%25' style='stop-color:%23000000;stop-opacity:0'/%3E%3C/linearGradient%3E%3ClinearGradient id='highlight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.1'/%3E%3Cstop offset='100%25' style='stop-color:%23ffffff;stop-opacity:0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23f97316' fill-opacity='0.9' fill-rule='evenodd'%3E%3Cpath d='M0 0h84v88H0V0zm2 2h80v40H2V2zM0 46h40v40H0V46zm44 0h40v40H44V46z'/%3E%3Cpath fill='url(%23topShade)' d='M2 2h80v8H2z'/%3E%3Cpath fill='url(%23leftShade)' d='M2 2h8v40H2z'/%3E%3Cpath fill='url(%23topShade)' d='M0 46h40v8H0z'/%3E%3Cpath fill='url(%23leftShade)' d='M0 46h8v40H0z'/%3E%3Cpath fill='url(%23topShade)' d='M44 46h40v8H44z'/%3E%3Cpath fill='url(%23leftShade)' d='M44 46h8v40H44z'/%3E%3Cpath fill='url(%23highlight)' d='M74 2l8 8v32H74zM30 46l8 8v32H30zM74 46l8 8v32H74z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '84px 88px',
-          filter: 'drop-shadow(3px 5px 8px rgba(0, 0, 0, 0.4))',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden'
-        }} />
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 100%)',
-          mixBlendMode: 'multiply'
-        }} />
+      <div className="relative min-h-screen">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
+          <img
+            src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+            alt="Background Logo"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
 
-        {/* Hero Section */}
-        <div className="relative min-h-screen flex flex-col justify-center items-center">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
-              Bridging Urban Communities
-            </h1>
-            <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
-              Connecting communities with sustainable solutions that promote environmental awareness and green living.
-            </p>
-            <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
-              <Link
-                href="/services"
-                className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
-              >
-                Our Services
-              </Link>
-              <Link
-                href="/about"
-                className="rounded-xl bg-black/50 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/20 hover:bg-black/70 transition-all duration-300 hover:shadow-black/40 backdrop-blur-sm hover:scale-105"
-              >
-                About Us
-              </Link>
+        {/* Content */}
+        <div className="relative min-h-screen flex flex-col">
+          <div className="flex-grow flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-32">
+            <div className="max-w-7xl mx-auto">
+              <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+                Bridging Urban Communities
+              </h1>
+              <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
+                Connecting communities with sustainable solutions that promote environmental awareness and green living.
+              </p>
+              <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
+                <Link
+                  href="/services"
+                  className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
+                >
+                  Our Services
+                </Link>
+                <Link
+                  href="/about"
+                  className="rounded-xl bg-black/50 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/20 hover:bg-black/70 transition-all duration-300 hover:shadow-black/40 backdrop-blur-sm hover:scale-105"
+                >
+                  About Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
