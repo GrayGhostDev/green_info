@@ -38,9 +38,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link href="/about" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 About Us
               </Link>
-              <Link href="/servicebot" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
-                ServiceBot Solutions
-              </Link>
               <Link href="/topics" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Topics
               </Link>
