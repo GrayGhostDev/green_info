@@ -53,21 +53,31 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="relative min-h-screen">
-        {/* Background Image */}
+        {/* Background Layers */}
         <div className="absolute inset-0">
+          {/* Base gradient background */}
           <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
-          <div className="absolute inset-0 flex items-center justify-center">
+          
+          {/* Logo Layer */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
             <img
               src={withBasePath("/images/greenInfo_Logo.pdf.png")}
               alt="Background Logo"
-              className="w-auto h-auto max-w-[90%] max-h-[90vh] object-contain opacity-20"
+              className="w-auto h-auto max-w-[120%] max-h-[120vh] object-contain opacity-25"
             />
           </div>
+
+          {/* Brick Pattern Layer */}
+          <div className="absolute inset-0 z-20 opacity-30" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cg fill='%23a0a0a0' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '42px 44px',
+            mixBlendMode: 'overlay'
+          }} />
         </div>
 
         {/* Content */}
-        <div className="relative min-h-screen flex flex-col">
-          <div className="flex-grow flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative z-30 min-h-screen flex flex-col">
+          <div className="flex-grow flex flex-col items-center justify-start text-center px-4 sm:px-6 lg:px-8 py-32">
             <div className="max-w-7xl mx-auto">
               <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
                 Bridging the Gap between Communities and Green Space
@@ -75,7 +85,7 @@ const Home: NextPage = () => {
               <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
                 Connecting communities with sustainable solutions that promote environmental awareness and green living.
               </p>
-              <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
+              <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards] mb-24">
                 <Link
                   href="/podcast"
                   className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
@@ -89,60 +99,56 @@ const Home: NextPage = () => {
                   About Us
                 </Link>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Features Section */}
-        <div className="relative py-24 bg-black/50 backdrop-blur-sm">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#00A651] mb-4">Our Focus Areas</h2>
-              <p className="text-xl text-gray-300">Driving sustainable change through innovation and community engagement</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {categories.map((category) => (
-                <div key={category.name} className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-105">
-                  <div className="h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center mb-4">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
-                  <p className="text-gray-300">{category.description}</p>
+              {/* Focus Areas Section */}
+              <div className="mb-24">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl font-bold text-[#00A651] mb-4">Our Focus Areas</h2>
+                  <p className="text-xl text-gray-300">Driving sustainable change through innovation and community engagement</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Podcast Section */}
-        <div className="relative py-24 bg-black/50 backdrop-blur-sm">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-[#00A651] mb-6">Green Info Urban Style Podcast</h2>
-                <p className="text-xl text-gray-300 mb-8">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
-                <div className="flex gap-4">
-                  <a
-                    href="/podcast"
-                    className="rounded-xl bg-[#00A651] px-6 py-3 text-white font-semibold hover:bg-[#00A651]/90 transition-all duration-300 hover:scale-105"
-                  >
-                    Listen Now
-                  </a>
-                  <a
-                    href="/episodes"
-                    className="rounded-xl bg-black/50 px-6 py-3 text-white font-semibold hover:bg-black/70 transition-all duration-300 hover:scale-105"
-                  >
-                    View Episodes
-                  </a>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {categories.map((category) => (
+                    <div key={category.name} className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-105">
+                      <div className="h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center mb-4">
+                        {category.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
+                      <p className="text-gray-300">{category.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden">
-                <img
-                  src={withBasePath("/images/Fwd_ GIUS PICS/20241218_150055.jpg")}
-                  alt="Podcast Studio"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+
+              {/* Podcast Section */}
+              <div className="mb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <h2 className="text-4xl font-bold text-[#00A651] mb-6">Green Info Urban Style Podcast</h2>
+                    <p className="text-xl text-gray-300 mb-8">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
+                    <div className="flex gap-4 justify-center lg:justify-start">
+                      <a
+                        href="/podcast"
+                        className="rounded-xl bg-[#00A651] px-6 py-3 text-white font-semibold hover:bg-[#00A651]/90 transition-all duration-300 hover:scale-105"
+                      >
+                        Listen Now
+                      </a>
+                      <a
+                        href="/episodes"
+                        className="rounded-xl bg-black/50 px-6 py-3 text-white font-semibold hover:bg-black/70 transition-all duration-300 hover:scale-105"
+                      >
+                        View Episodes
+                      </a>
+                    </div>
+                  </div>
+                  <div className="relative h-96 rounded-2xl overflow-hidden">
+                    <img
+                      src={withBasePath("/images/Fwd_ GIUS PICS/20241218_150055.jpg")}
+                      alt="Podcast Studio"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

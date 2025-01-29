@@ -7,12 +7,10 @@ import { withBasePath } from '../utils/basePath'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Vision & Mission', href: '/vision-mission' },
+  { name: 'About Us', href: '/about' },
   { name: 'Topics', href: '/topics' },
   { name: 'Episodes', href: '/episodes' },
-  { name: 'Podcast', href: '/podcast' },
-  { name: 'Guests', href: '/guests' }
+  { name: 'Podcast', href: '/podcast' }
 ]
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -24,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex-shrink-0">
               <Link href="/" className="hover-scale block">
                 <img
-                  className="h-10 w-auto"
+                  className="h-14 w-auto"
                   src={withBasePath("/images/greenInfo_Logo.pdf.png")}
                   alt="Green Info"
                 />
@@ -40,11 +38,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link href="/topics" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Topics
               </Link>
-              <Link href="/values" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
-                Values
+              <Link href="/episodes" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+                Episodes
               </Link>
-              <Link href="/vision-mission" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
-                Vision & Mission
+              <Link href="/podcast" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+                Podcast
               </Link>
             </div>
           </div>
