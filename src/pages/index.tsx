@@ -100,7 +100,7 @@ const Home: NextPage = () => {
           <div className="flex-grow flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-32">
             <div className="max-w-7xl mx-auto">
               <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
-                Bridging Urban Communities
+                Bridging the Gap between Communities and Green Space
               </h1>
               <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
                 Connecting communities with sustainable solutions that promote environmental awareness and green living.
