@@ -44,36 +44,6 @@ const categories = [
   }
 ]
 
-const services = [
-  {
-    name: "UVC Technology",
-    description: "Advanced air purification systems removing 99.9% of airborne threats.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    )
-  },
-  {
-    name: "HVAC Solutions",
-    description: "Energy-efficient air filtration and climate control systems.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    )
-  },
-  {
-    name: "Energy Audits",
-    description: "Comprehensive analysis for optimal energy efficiency.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    )
-  }
-]
-
 const Home: NextPage = () => {
   useIntersectionObserver({
     targetSelector: '.fade-in',
@@ -107,10 +77,10 @@ const Home: NextPage = () => {
               </p>
               <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
                 <Link
-                  href="/services"
+                  href="/podcast"
                   className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
                 >
-                  Our Services
+                  Listen Now
                 </Link>
                 <Link
                   href="/about"
@@ -138,33 +108,6 @@ const Home: NextPage = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
                   <p className="text-gray-300">{category.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Services Section */}
-        <div className="relative py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#00A651] mb-4">Our Services</h2>
-              <p className="text-xl text-gray-300">Professional solutions for sustainable urban environments</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <div key={service.name} className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-105">
-                  <div className="h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center mb-4">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">{service.name}</h3>
-                  <p className="text-gray-300 mb-6">{service.description}</p>
-                  <Link href="/services" className="text-[#00A651] hover:text-[#00A651]/80 transition-colors duration-300 flex items-center gap-2">
-                    Learn More
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
                 </div>
               ))}
             </div>

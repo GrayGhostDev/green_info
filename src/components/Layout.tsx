@@ -11,7 +11,6 @@ const navigation = [
   { name: 'Vision & Mission', href: '/vision-mission' },
   { name: 'Topics', href: '/topics' },
   { name: 'Episodes', href: '/episodes' },
-  { name: 'Services', href: '/services' },
   { name: 'Podcast', href: '/podcast' },
   { name: 'Guests', href: '/guests' }
 ]

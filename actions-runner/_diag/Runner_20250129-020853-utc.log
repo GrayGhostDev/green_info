@@ -1,0 +1,92 @@
+[2025-01-29 02:08:53Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'Credentials': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'Runner': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.runner'
+[2025-01-29 02:08:53Z INFO Listener] Runner is built for OSX (X64) - osx-x64.
+[2025-01-29 02:08:53Z INFO Listener] RuntimeInformation: Darwin 24.2.0 Darwin Kernel Version 24.2.0: Fri Dec  6 19:01:59 PST 2024; root:xnu-11215.61.5~2/RELEASE_ARM64_T6000.
+[2025-01-29 02:08:53Z INFO Listener] Version: 2.321.0
+[2025-01-29 02:08:53Z INFO Listener] Commit: e249007931b7c8e857797fa259c167f0bd4f997a
+[2025-01-29 02:08:53Z INFO Listener] Culture: en-US
+[2025-01-29 02:08:53Z INFO Listener] UI Culture: en-US
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO Listener] Validating directory permissions for: '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO CommandLineParser] Parse
+[2025-01-29 02:08:53Z INFO CommandLineParser] Parsing 3 args
+[2025-01-29 02:08:53Z INFO CommandLineParser] parsing argument
+[2025-01-29 02:08:53Z INFO CommandLineParser] HasArgs: False
+[2025-01-29 02:08:53Z INFO CommandLineParser] Adding Command: remove
+[2025-01-29 02:08:53Z INFO CommandLineParser] parsing argument
+[2025-01-29 02:08:53Z INFO CommandLineParser] HasArgs: True
+[2025-01-29 02:08:53Z INFO CommandLineParser] arg: token
+[2025-01-29 02:08:53Z INFO CommandLineParser] parsing argument
+[2025-01-29 02:08:53Z INFO CommandLineParser] HasArgs: True
+[2025-01-29 02:08:53Z INFO CommandLineParser] Adding option 'token': '***'
+[2025-01-29 02:08:53Z INFO Listener] Arguments parsed
+[2025-01-29 02:08:53Z INFO Runner] ExecuteCommand
+[2025-01-29 02:08:53Z INFO ConfigurationStore] currentAssemblyLocation: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin/Runner.Listener.dll
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] binPath: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] RootFolder: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'Runner': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.runner'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] ConfigFilePath: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.runner
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'Credentials': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] CredFilePath: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials_migrated'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] MigratedCredFilePath: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials_migrated
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:53Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:53Z INFO HostContext] Well known config file 'Service': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.service'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.service
+[2025-01-29 02:08:53Z INFO CommandSettings] Flag 'help': 'False'
+[2025-01-29 02:08:53Z INFO CommandSettings] Flag 'version': 'False'
+[2025-01-29 02:08:53Z INFO CommandSettings] Flag 'commit': 'False'
+[2025-01-29 02:08:53Z INFO CommandSettings] Flag 'check': 'False'
+[2025-01-29 02:08:53Z INFO CommandSettings] Command 'configure': 'False'
+[2025-01-29 02:08:53Z INFO CommandSettings] Command 'remove': 'True'
+[2025-01-29 02:08:53Z INFO CommandSettings] Flag 'local': 'False'
+[2025-01-29 02:08:53Z INFO ConfigurationStore] IsServiceConfigured()
+[2025-01-29 02:08:53Z INFO ConfigurationStore] IsServiceConfigured: False
+[2025-01-29 02:08:53Z INFO ConfigurationStore] IsConfigured()
+[2025-01-29 02:08:53Z INFO ConfigurationStore] IsConfigured: True
+[2025-01-29 02:08:53Z INFO ConfigurationStore] HasCredentials()
+[2025-01-29 02:08:53Z INFO ConfigurationStore] stored True
+[2025-01-29 02:08:53Z INFO ConfigurationStore] Read setting file: 300 chars
+[2025-01-29 02:08:53Z INFO CommandSettings] Arg 'token': '***'
+[2025-01-29 02:08:53Z INFO CommandSettings] Remove token from Arg dictionary.
+[2025-01-29 02:08:54Z INFO ConfigurationManager] Http response code: OK from 'POST https://api.github.com/actions/runner-registration' (CAD0:3F8B6B:ED3147:1D62407:67998DB6)
+[2025-01-29 02:08:54Z INFO ConfigurationManager] cred retrieved via GitHub auth
+[2025-01-29 02:08:54Z INFO RunnerServer] EstablishVssConnection
+[2025-01-29 02:08:54Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-01-29 02:08:54Z INFO RunnerServer] EstablishVssConnection
+[2025-01-29 02:08:54Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-01-29 02:08:54Z INFO RunnerServer] EstablishVssConnection
+[2025-01-29 02:08:54Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-01-29 02:08:54Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-01-29 02:08:55Z INFO Terminal] WRITE LINE: 
+[2025-01-29 02:08:55Z INFO ConfigurationStore] IsConfigured()
+[2025-01-29 02:08:55Z INFO ConfigurationStore] IsConfigured: True
+[2025-01-29 02:08:55Z INFO ConfigurationStore] HasCredentials()
+[2025-01-29 02:08:55Z INFO ConfigurationStore] stored True
+[2025-01-29 02:08:55Z INFO HostContext] Well known directory 'Bin': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/bin'
+[2025-01-29 02:08:55Z INFO HostContext] Well known directory 'Root': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner'
+[2025-01-29 02:08:55Z INFO HostContext] Well known config file 'RSACredentials': '/Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials_rsaparams'
+[2025-01-29 02:08:55Z INFO RSAFileKeyManager] Deleting RSA key parameters file /Users/curtisjemison/Green_Info_Urban_style_site/actions-runner/.credentials_rsaparams
+[2025-01-29 02:08:55Z INFO Terminal] WRITE LINE: 
+[2025-01-29 02:08:55Z INFO Listener] Runner execution has finished with return code 0
