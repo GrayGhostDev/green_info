@@ -7,6 +7,12 @@ const nextConfig = {
   },
   // Ensure trailing slashes for GitHub Pages
   trailingSlash: true,
+  // Disable server-side features
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
 }
 
 module.exports = nextConfig 
