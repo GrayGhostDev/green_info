@@ -86,11 +86,13 @@ const Home: NextPage = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
-          <img
-            src={withBasePath("/images/greenInfo_Logo.pdf.png")}
-            alt="Background Logo"
-            className="w-full h-full object-cover opacity-20"
-          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+              alt="Background Logo"
+              className="w-auto h-auto max-w-[90%] max-h-[90vh] object-contain opacity-20"
+            />
+          </div>
         </div>
 
         {/* Content */}
