@@ -2,6 +2,8 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Link from 'next/link'
 
 const categories = [
   {
@@ -104,18 +106,18 @@ const Home: NextPage = () => {
               Connecting communities with sustainable solutions that promote environmental awareness and green living.
             </p>
             <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
-              <a
+              <Link
                 href="/services"
                 className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
               >
                 Our Services
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/about"
                 className="rounded-xl bg-black/50 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/20 hover:bg-black/70 transition-all duration-300 hover:shadow-black/40 backdrop-blur-sm hover:scale-105"
               >
                 About Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -156,12 +158,12 @@ const Home: NextPage = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-4">{service.name}</h3>
                   <p className="text-gray-300 mb-6">{service.description}</p>
-                  <a href="/services" className="text-[#00A651] hover:text-[#00A651]/80 transition-colors duration-300 flex items-center gap-2">
+                  <Link href="/services" className="text-[#00A651] hover:text-[#00A651]/80 transition-colors duration-300 flex items-center gap-2">
                     Learn More
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -192,7 +194,7 @@ const Home: NextPage = () => {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <img
-                  src="/images/Fwd_ GIUS PICS/20241218_150055.jpg"
+                  src={withBasePath("/images/Fwd_ GIUS PICS/20241218_150055.jpg")}
                   alt="Podcast Studio"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -212,18 +214,18 @@ const Home: NextPage = () => {
                   Join us in creating sustainable urban communities through innovative solutions and community engagement.
                 </p>
                 <div className="flex justify-center gap-6">
-                  <a
+                  <Link
                     href="/contact"
                     className="rounded-xl bg-white px-8 py-4 text-[#00A651] font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105"
                   >
                     Get Started
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/about"
                     className="rounded-xl bg-black/50 px-8 py-4 text-white font-semibold hover:bg-black/70 transition-all duration-300 hover:scale-105"
                   >
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="absolute inset-0 opacity-30">

@@ -2,6 +2,8 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import { withBasePath } from '../utils/basePath'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -21,33 +23,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between items-center">
             <div className="flex-shrink-0">
-              <a href="/" className="hover-scale block">
+              <Link href="/" className="hover-scale block">
                 <img
                   className="h-10 w-auto"
-                  src="/images/greenInfo_Logo.pdf.png"
+                  src={withBasePath("/images/greenInfo_Logo.pdf.png")}
                   alt="Green Info"
                 />
-              </a>
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <a href="/" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              <Link href="/" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Home
-              </a>
-              <a href="/about" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              </Link>
+              <Link href="/about" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 About Us
-              </a>
-              <a href="/servicebot" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              </Link>
+              <Link href="/servicebot" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 ServiceBot Solutions
-              </a>
-              <a href="/topics" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              </Link>
+              <Link href="/topics" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Topics
-              </a>
-              <a href="/values" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              </Link>
+              <Link href="/values" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Values
-              </a>
-              <a href="/vision-mission" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+              </Link>
+              <Link href="/vision-mission" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Vision & Mission
-              </a>
+              </Link>
             </div>
           </div>
         </div>
