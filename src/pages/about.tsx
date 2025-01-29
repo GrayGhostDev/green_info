@@ -94,83 +94,57 @@ export default function About() {
 
   return (
     <Layout>
-      <div className="relative min-h-screen bg-black">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={image}
-            className={`absolute inset-0 transition-all duration-1500 ease-in-out transform ${
-              index === currentImageIndex 
-                ? 'opacity-30 scale-100'
-                : 'opacity-0 scale-105'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Background ${index + 1}`}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-          </div>
-        ))}
-
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              About Us
-            </h1>
-            <p className="mt-3 text-xl text-gray-300">
-              At Green Info Urban Style, we're dedicated to creating sustainable urban environments through innovative solutions and community engagement.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Vision & Mission Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
+      <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 w-full h-full opacity-5">
+          <div className="absolute inset-0 w-full h-full" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
+            backgroundSize: '60px 60px',
+            backgroundRepeat: 'repeat'
           }} />
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-            <div className="relative lg:col-start-1">
-              <div className="relative mb-8 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:gap-8">
-                <div className="fade-in-left group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                      </svg>
-                    </span>
+
+        {/* Content */}
+        <div className="relative py-16 sm:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+              <div className="relative lg:col-start-1">
+                <div className="relative mb-8 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:gap-8">
+                  <div className="fade-in-left group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div className="pt-4">
+                      <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Vision</h2>
+                      <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
+                        Leading Green Innovation
+                      </p>
+                      <p className="mt-4 text-lg text-gray-300">
+                        To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
+                      </p>
+                    </div>
                   </div>
-                  <div className="pt-4">
-                    <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Vision</h2>
-                    <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
-                      Leading Green Innovation
-                    </p>
-                    <p className="mt-4 text-lg text-gray-300">
-                      To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
-                    </p>
-                  </div>
-                </div>
-                <div className="fade-in-right group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                    </span>
-                  </div>
-                  <div className="pt-4">
-                    <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Mission</h2>
-                    <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
-                      Enhancing Communities
-                    </p>
-                    <p className="mt-4 text-lg text-gray-300">
-                      To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology.
-                    </p>
+                  <div className="fade-in-right group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div className="pt-4">
+                      <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Mission</h2>
+                      <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
+                        Enhancing Communities
+                      </p>
+                      <p className="mt-4 text-lg text-gray-300">
+                        To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -249,11 +223,13 @@ export default function About() {
             </p>
           </div>
           <div className="mt-16">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {commitments.map((commitment, index) => (
                 <div
                   key={commitment}
-                  className={`fade-in group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
+                  className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                    index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
+                  }`}
                 >
                   <div className="flex items-center">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-600 text-white shadow-lg">

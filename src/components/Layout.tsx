@@ -8,8 +8,6 @@ import { withBasePath } from '../utils/basePath'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
-  { name: 'Topics', href: '/topics' },
-  { name: 'Episodes', href: '/episodes' },
   { name: 'Podcast', href: '/podcast' }
 ]
 
@@ -34,12 +32,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <Link href="/about" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 About Us
-              </Link>
-              <Link href="/topics" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
-                Topics
-              </Link>
-              <Link href="/episodes" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
-                Episodes
               </Link>
               <Link href="/podcast" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Podcast

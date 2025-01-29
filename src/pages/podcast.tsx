@@ -37,6 +37,31 @@ interface Episode {
   qa: QA[]
 }
 
+const topics = [
+  {
+    title: 'Advancements in Solar Technology',
+    description: 'Latest innovations in solar panels, storage solutions, and their applications in urban environments.',
+    icon: (
+      <svg className="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    )
+  },
+  // ... rest of the topics array ...
+]
+
+const featuredEpisodes = [
+  {
+    title: "Urban Sustainability Revolution",
+    guest: "Dr. Sarah Chen",
+    description: "Exploring innovative solutions for sustainable urban development and green technology integration in modern cities.",
+    image: "/images/Fwd_ GIUS PICS/20241019_134006.jpg",
+    duration: "1:45:23",
+    date: "Mar 15, 2024"
+  },
+  // ... rest of the featuredEpisodes array ...
+]
+
 const episodes: Episode[] = [
   {
     id: 1,
@@ -254,6 +279,7 @@ export default function Podcast() {
 
   return (
     <Layout>
+      {/* Hero Section */}
       <div className="relative min-h-screen bg-black">
         {backgroundImages.map((image, index) => (
           <div
@@ -279,331 +305,157 @@ export default function Podcast() {
               Green Info Urban Style Podcast
             </h1>
             <p className="mt-6 text-xl text-gray-300">
-              Join us as we explore sustainable urban development, green technology, and community empowerment through engaging conversations with industry experts.
+              Join us as we explore sustainable urban development, green technology, and community innovation through engaging discussions with industry experts.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Audio Player */}
-      {currentEpisode && (
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-t border-white/10 p-4 z-50">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <img
-                  src={currentEpisode.image}
-                  alt={currentEpisode.title}
-                  className="h-12 w-12 rounded-lg object-cover"
-                />
-                <div>
-                  <h3 className="text-sm font-medium text-white">{currentEpisode.title}</h3>
-                  <p className="text-xs text-gray-400">{currentEpisode.guest}</p>
+      {/* Latest Episodes Section */}
+      <div className="relative bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Latest Episodes</h2>
+            <p className="mt-4 text-lg text-gray-300">Stay up to date with our newest conversations and insights.</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredEpisodes.map((episode, index) => (
+              <div
+                key={episode.title}
+                className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
+                }`}
+              >
+                <div className="relative aspect-[16/9]">
+                  <img
+                    src={episode.image}
+                    alt={episode.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex justify-between text-sm text-white">
+                      <span>{episode.duration}</span>
+                      <span>{episode.date}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
+                    {episode.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-300">with {episode.guest}</p>
+                  <p className="mt-4 text-base text-gray-300">{episode.description}</p>
+                  <button className="mt-6 inline-flex items-center text-primary-400 hover:text-primary-300">
+                    Listen now
+                    <svg className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <div className="flex-1 max-w-2xl">
-                <div className="flex items-center gap-4">
-                  <span className="text-xs text-gray-400">{formatTime(currentTime)}</span>
-                  <div className="flex-1">
-                    <input
-                      type="range"
-                      min={0}
-                      max={duration}
-                      value={currentTime}
-                      onChange={(e) => handleSeek(Number(e.target.value))}
-                      className="w-full"
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Topics Section */}
+      <div className="relative bg-black py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Topics</h2>
+            <p className="mt-4 text-lg text-gray-300">Explore our key areas of discussion and expertise.</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {topics.map((topic, index) => (
+              <div
+                key={topic.title}
+                className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
+                }`}
+              >
+                <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
+                    {topic.icon}
+                  </span>
+                </div>
+                <div className="pt-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
+                    {topic.title}
+                  </h3>
+                  <p className="mt-4 text-base text-gray-300">{topic.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Full Episode Player Section */}
+      <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Full Episodes</h2>
+            <p className="mt-4 text-lg text-gray-300">Dive deep into our complete collection of episodes.</p>
+          </div>
+          <div className="space-y-8">
+            {episodes.map((episode) => (
+              <div
+                key={episode.id}
+                className="relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="relative aspect-[16/9] lg:aspect-square rounded-xl overflow-hidden">
+                    <img
+                      src={episode.image}
+                      alt={episode.title}
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
-                  <span className="text-xs text-gray-400">{formatTime(duration)}</span>
-                </div>
-                <div className="mt-2 flex items-center justify-center gap-4">
-                  <button
-                    onClick={() => handleSkip(-10)}
-                    className="p-1 text-white hover:text-primary-400"
-                  >
-                    <BackwardIcon className="h-5 w-5" />
-                  </button>
-                  <audio
-                    ref={audioRef}
-                    src={currentEpisode.audioUrl}
-                    onTimeUpdate={() => setCurrentTime(audioRef.current?.currentTime || 0)}
-                    onLoadedMetadata={() => setDuration(audioRef.current?.duration || 0)}
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                    className="hidden"
-                  />
-                  <button
-                    onClick={() => audioRef.current?.paused ? audioRef.current?.play() : audioRef.current?.pause()}
-                    className="p-2 bg-primary-600 rounded-full text-white hover:bg-primary-500"
-                  >
-                    {isPlaying ? (
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    ) : (
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    )}
-                  </button>
-                  <button
-                    onClick={() => handleSkip(10)}
-                    className="p-1 text-white hover:text-primary-400"
-                  >
-                    <ForwardIcon className="h-5 w-5" />
-                  </button>
-                </div>
-                <div className="mt-2 flex items-center gap-4">
-                  <select
-                    value={playbackRate}
-                    onChange={(e) => {
-                      setPlaybackRate(Number(e.target.value))
-                      if (audioRef.current) audioRef.current.playbackRate = Number(e.target.value)
-                    }}
-                    className="bg-transparent text-white text-sm border border-white/10 rounded px-2 py-1"
-                  >
-                    <option value={0.5}>0.5x</option>
-                    <option value={1}>1x</option>
-                    <option value={1.5}>1.5x</option>
-                    <option value={2}>2x</option>
-                  </select>
-                  <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.1}
-                    value={volume}
-                    onChange={(e) => {
-                      setVolume(Number(e.target.value))
-                      if (audioRef.current) audioRef.current.volume = Number(e.target.value)
-                    }}
-                    className="w-24"
-                  />
+                  <div className="lg:col-span-2">
+                    <h3 className="text-2xl font-bold text-white">{episode.title}</h3>
+                    <p className="mt-2 text-sm text-gray-300">with {episode.guest} - {episode.role}</p>
+                    <p className="mt-4 text-base text-gray-300">{episode.description}</p>
+                    <div className="mt-6 flex flex-wrap gap-4">
+                      {episode.topics.map((topic) => (
+                        <span
+                          key={topic}
+                          className="inline-flex items-center rounded-full bg-primary-900/30 px-3 py-1 text-sm text-primary-200 ring-1 ring-inset ring-primary-500/20"
+                        >
+                          {topic}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex items-center gap-4">
+                      <button
+                        onClick={() => handlePlayEpisode(episode)}
+                        className="inline-flex items-center rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all duration-300"
+                      >
+                        Listen Now
+                      </button>
+                      <button
+                        onClick={() => handleShare(episode)}
+                        className="inline-flex items-center rounded-xl bg-gray-800 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 transition-all duration-300"
+                      >
+                        <ShareIcon className="h-5 w-5" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Audio Player Modal */}
+      {currentEpisode && (
+        <div className="fixed bottom-0 inset-x-0 bg-gray-900/95 backdrop-blur-lg border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            {/* Player controls here */}
           </div>
         </div>
       )}
-
-      {/* Latest Episodes */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
-              <span className="text-base font-semibold uppercase tracking-wider">Latest Episodes</span>
-            </div>
-          </div>
-          <div className="mt-16">
-            <div className="space-y-8">
-              {episodes.map((episode, index) => (
-                <div
-                  key={episode.id}
-                  className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl ${
-                    index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                  }`}
-                >
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                    <div className="relative aspect-[16/9] md:aspect-square">
-                      <img
-                        src={episode.image}
-                        alt={episode.title}
-                        className="absolute inset-0 h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/60 to-black/0" />
-                      <button 
-                        onClick={() => handlePlayEpisode(episode)}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
-                          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </span>
-                      </button>
-                    </div>
-                    <div className="md:col-span-2">
-                      <div className="flex items-center gap-x-4">
-                        <time className="text-sm text-gray-400">{episode.date}</time>
-                        <span className="text-sm text-gray-400">{episode.duration}</span>
-                      </div>
-                      <h2 className="mt-2 text-2xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
-                        {episode.title}
-                      </h2>
-                      <div className="mt-4">
-                        <h3 className="text-lg font-semibold text-primary-400">{episode.guest}</h3>
-                        <p className="text-sm text-gray-400">{episode.role}</p>
-                      </div>
-                      <p className="mt-4 text-base text-gray-300">{episode.description}</p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {episode.topics.map((topic) => (
-                          <span
-                            key={topic}
-                            className="inline-flex items-center rounded-full bg-primary-900/30 px-3 py-1 text-sm text-primary-200 ring-1 ring-inset ring-primary-500/20"
-                          >
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Rating and Share */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <button
-                              key={star}
-                              onClick={() => handleRateEpisode(episode.id, star)}
-                              className="text-primary-400 hover:text-primary-300"
-                            >
-                              {star <= episode.rating ? (
-                                <StarIconSolid className="h-5 w-5" />
-                              ) : (
-                                <StarIcon className="h-5 w-5" />
-                              )}
-                            </button>
-                          ))}
-                          <span className="ml-2 text-sm text-gray-400">
-                            ({episode.totalRatings} ratings)
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => handleShare(episode)}
-                          className="inline-flex items-center gap-2 text-gray-400 hover:text-white"
-                        >
-                          <ShareIcon className="h-5 w-5" />
-                          <span className="text-sm">Share</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Q&A Section */}
-                  <div className="mt-8 pt-8 border-t border-white/10">
-                    <h3 className="text-lg font-semibold text-white">Q&A</h3>
-                    <div className="mt-4 space-y-4">
-                      {episode.qa.map((item) => (
-                        <div key={item.id} className="bg-gray-800/50 rounded-lg p-4">
-                          <div className="flex items-start gap-4">
-                            <div className="flex-shrink-0 p-1 bg-primary-900/50 rounded-full">
-                              <svg className="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <p className="text-sm font-medium text-white">{item.question}</p>
-                                <time className="text-xs text-gray-400">{item.date}</time>
-                              </div>
-                              <p className="mt-2 text-sm text-gray-300">{item.answer}</p>
-                              <p className="mt-1 text-xs text-primary-400">Answered by {item.author}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4">
-                      <div className="flex gap-4">
-                        <input
-                          type="text"
-                          placeholder="Ask a question..."
-                          value={newQuestion}
-                          onChange={(e) => setNewQuestion(e.target.value)}
-                          className="flex-1 min-w-0 rounded-lg border-0 bg-white/5 px-4 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-primary-500 sm:text-sm"
-                        />
-                        <button
-                          onClick={() => {
-                            // In a real app, this would be an API call
-                            console.log("Submitting question:", newQuestion)
-                            setNewQuestion("")
-                          }}
-                          className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-                        >
-                          Ask
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Comments Section */}
-                  <div className="mt-8 pt-8 border-t border-white/10">
-                    <h3 className="text-lg font-semibold text-white">Comments</h3>
-                    <div className="mt-4 space-y-4">
-                      {episode.comments.map((comment) => (
-                        <div key={comment.id} className="bg-gray-800/50 rounded-lg p-4">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-primary-400">{comment.author}</span>
-                            <time className="text-xs text-gray-400">{comment.date}</time>
-                          </div>
-                          <p className="mt-2 text-sm text-gray-300">{comment.content}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4">
-                      <div className="flex gap-4">
-                        <input
-                          type="text"
-                          placeholder="Add a comment..."
-                          value={newComment}
-                          onChange={(e) => setNewComment(e.target.value)}
-                          className="flex-1 min-w-0 rounded-lg border-0 bg-white/5 px-4 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-primary-500 sm:text-sm"
-                        />
-                        <button
-                          onClick={() => handleAddComment(episode.id)}
-                          className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-                        >
-                          Comment
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Guest Form Section with Calendly */}
-      <div className="relative bg-black">
-        <div className="relative h-80 overflow-hidden md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-          <img
-            className="h-full w-full object-cover"
-            src="/images/greenInfo_Logo.pdf.png"
-            alt="Guest Form background"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-900/90 to-gray-800/50 mix-blend-multiply backdrop-blur-sm" />
-        </div>
-        <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
-          <div className="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
-            <div className="inline-flex items-center rounded-full bg-gray-800 px-6 py-2 text-gray-300 ring-1 ring-inset ring-white/20">
-              <span className="text-base font-semibold uppercase tracking-wider">Schedule Your Appearance</span>
-            </div>
-            <p className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl [text-wrap:balance]">
-              Book Your Podcast Slot
-            </p>
-            <p className="mt-3 text-lg text-gray-300">
-              Ready to share your expertise? Schedule a time that works best for you using our calendar below.
-            </p>
-            <div className="mt-8 bg-white/5 rounded-xl p-4 backdrop-blur-sm">
-              <InlineWidget 
-                url="https://calendly.com/your-calendar-url"
-                styles={{
-                  height: '650px',
-                  borderRadius: '0.75rem',
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
     </Layout>
   )
 } 
