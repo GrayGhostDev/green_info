@@ -2,6 +2,26 @@ import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
+interface PressKitFormData {
+  firstName: string
+  lastName: string
+  email: string
+  organization: string
+  mediaType: string
+  message: string
+  terms: boolean
+}
+
+const initialFormState: PressKitFormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  organization: '',
+  mediaType: 'Print Media',
+  message: '',
+  terms: false
+}
+
 const highlights = [
   {
     name: 'Green Innovation Leadership',
@@ -64,6 +84,38 @@ export default function About() {
     const timer = setInterval(nextImage, 7000)
     return () => clearInterval(timer)
   }, [])
+
+  const [formData, setFormData] = useState<PressKitFormData>(initialFormState)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Here you would typically send the form data to your backend
+      // For now, we'll simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Reset form after successful submission
+      setFormData(initialFormState)
+      setSubmitStatus('success')
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   useIntersectionObserver({
     targetSelector: '.fade-in',
@@ -243,6 +295,214 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Press Kit Form Section */}
+      <div className="relative overflow-hidden bg-black py-16 sm:py-24">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
+              <span className="text-base font-semibold uppercase tracking-wider">Media Resources</span>
+            </div>
+            <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Press Kit Request
+            </h2>
+            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-300">
+              Get access to our media resources, high-resolution images, and podcast information for press coverage.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6 fade-in">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-300">
+                    First name
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="given-name"
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-300">
+                    Last name
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="family-name"
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    autoComplete="email"
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="organization" className="block text-sm font-medium text-gray-300">
+                    Organization
+                  </label>
+                  <input
+                    type="text"
+                    name="organization"
+                    id="organization"
+                    value={formData.organization}
+                    onChange={handleInputChange}
+                    required
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="mediaType" className="block text-sm font-medium text-gray-300">
+                    Media Type
+                  </label>
+                  <select
+                    id="mediaType"
+                    name="mediaType"
+                    value={formData.mediaType}
+                    onChange={handleInputChange}
+                    required
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  >
+                    <option value="Print Media">Print Media</option>
+                    <option value="Online Publication">Online Publication</option>
+                    <option value="Broadcast Media">Broadcast Media</option>
+                    <option value="Podcast">Podcast</option>
+                    <option value="Blog">Blog</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+                    How do you plan to use our press kit?
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <input
+                        id="terms"
+                        name="terms"
+                        type="checkbox"
+                        checked={formData.terms}
+                        onChange={handleInputChange}
+                        required
+                        className="h-4 w-4 rounded border-gray-600 bg-gray-900/50 text-primary-600 focus:ring-primary-500"
+                      />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-gray-300">
+                        I agree to the{' '}
+                        <a href="#" className="font-medium text-primary-400 hover:text-primary-300">
+                          terms and conditions
+                        </a>
+                        {' '}for using the press kit materials.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="rounded-md bg-green-900/50 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-green-400">
+                        Press kit request submitted successfully! We'll be in touch soon.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="rounded-md bg-red-900/50 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-red-400">
+                        There was an error submitting your request. Please try again.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`inline-flex justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-300 ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Request Press Kit'}
+                </button>
+              </div>
+            </form>
+
+            <div className="mt-12 border-t border-gray-700 pt-8 text-center">
+              <p className="text-sm text-gray-400">
+                Need immediate assistance? Contact our media relations team at{' '}
+                <a href="mailto:press@greeninfo.com" className="text-primary-400 hover:text-primary-300">
+                  press@greeninfo.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
