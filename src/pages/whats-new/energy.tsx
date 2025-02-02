@@ -5,21 +5,21 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 const articles = [
   {
     title: 'Solar Panel Incentives 2024',
-    date: 'March 14, 2024',
+    date: 'March 17, 2024',
     description: 'Learn about the latest government incentives and rebates for installing solar panels in your home.',
     image: '/images/solar-panels.jpg',
     category: 'Incentives'
   },
   {
     title: 'Energy-Saving Home Improvements',
-    date: 'March 12, 2024',
+    date: 'March 14, 2024',
     description: 'Practical tips and improvements to reduce your home\'s energy consumption and lower utility bills.',
     image: '/images/energy-saving.jpg',
     category: 'Tips'
   },
   {
     title: 'Community Solar Projects',
-    date: 'March 8, 2024',
+    date: 'March 11, 2024',
     description: 'How communities are coming together to create shared solar energy solutions.',
     image: '/images/community-solar.jpg',
     category: 'Community'

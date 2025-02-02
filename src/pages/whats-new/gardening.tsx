@@ -5,21 +5,21 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 const articles = [
   {
     title: 'Urban Garden Design Trends 2024',
-    date: 'March 15, 2024',
+    date: 'March 18, 2024',
     description: 'Discover the latest trends in urban gardening, from vertical gardens to smart irrigation systems.',
     image: '/images/garden-trends.jpg',
     category: 'Trends'
   },
   {
     title: 'Starting Your Community Garden',
-    date: 'March 10, 2024',
+    date: 'March 15, 2024',
     description: 'A comprehensive guide to initiating and managing a successful community garden project.',
     image: '/images/community-garden.jpg',
     category: 'Community'
   },
   {
     title: 'Seasonal Planting Guide: Spring',
-    date: 'March 5, 2024',
+    date: 'March 12, 2024',
     description: 'What to plant this spring for a bountiful summer harvest in your urban garden.',
     image: '/images/spring-planting.jpg',
     category: 'Guides'

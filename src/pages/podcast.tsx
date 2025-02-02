@@ -57,7 +57,7 @@ const featuredEpisodes = [
     description: "Exploring innovative solutions for sustainable urban development and green technology integration in modern cities.",
     image: "/images/Fwd_ GIUS PICS/20241019_134006.jpg",
     duration: "1:45:23",
-    date: "Mar 15, 2024"
+    date: "March 18, 2024"
   },
   // ... rest of the featuredEpisodes array ...
 ]
@@ -68,7 +68,7 @@ const episodes: Episode[] = [
     title: "Green Innovation in Urban Communities",
     guest: "Dr. Sarah Johnson",
     role: "Environmental Scientist",
-    date: "January 2024",
+    date: "March 2024",
     duration: "45 min",
     description: "Exploring sustainable solutions for urban development and community health.",
     image: "/images/Fwd_ GIUS PICS/20241218_152321.jpg",
@@ -81,13 +81,13 @@ const episodes: Episode[] = [
         id: 1,
         author: "Jane Smith",
         content: "Great insights on urban sustainability! The discussion about community gardens was particularly interesting.",
-        date: "January 15, 2024"
+        date: "March 15, 2024"
       },
       {
         id: 2,
         author: "Michael Brown",
         content: "Dr. Johnson's perspective on integrating green spaces in urban planning is revolutionary.",
-        date: "January 16, 2024"
+        date: "March 16, 2024"
       }
     ],
     qa: [
@@ -96,14 +96,14 @@ const episodes: Episode[] = [
         question: "How can small communities start implementing green initiatives?",
         answer: "Start with community gardens and local recycling programs. These initiatives have low barriers to entry but create significant impact.",
         author: "Dr. Sarah Johnson",
-        date: "January 16, 2024"
+        date: "March 16, 2024"
       },
       {
         id: 2,
         question: "What role does technology play in urban sustainability?",
         answer: "Technology enables smart resource management, from water conservation to energy efficiency monitoring.",
         author: "Dr. Sarah Johnson",
-        date: "January 17, 2024"
+        date: "March 17, 2024"
       }
     ]
   },
@@ -112,7 +112,7 @@ const episodes: Episode[] = [
     title: "Future of Clean Energy Technology",
     guest: "Michael Chen",
     role: "Energy Innovation Expert",
-    date: "January 2024",
+    date: "March 2024",
     duration: "38 min",
     description: "Discussing breakthrough technologies in renewable energy and their urban applications.",
     image: "/images/Fwd_ GIUS PICS/20241218_150055.jpg",
@@ -125,7 +125,7 @@ const episodes: Episode[] = [
         id: 1,
         author: "David Wilson",
         content: "The section on microgrids was eye-opening. Great discussion!",
-        date: "January 18, 2024"
+        date: "March 18, 2024"
       }
     ],
     qa: []
@@ -135,7 +135,7 @@ const episodes: Episode[] = [
     title: "Building Sustainable Communities",
     guest: "Lisa Martinez",
     role: "Urban Planning Director",
-    date: "December 2023",
+    date: "March 2024",
     duration: "42 min",
     description: "Strategies for creating environmentally conscious urban spaces.",
     image: "/images/Fwd_ GIUS PICS/20241218_152304.jpg",
@@ -148,7 +148,7 @@ const episodes: Episode[] = [
         id: 1,
         author: "Sarah Thompson",
         content: "Love the practical approach to community-led development initiatives.",
-        date: "January 10, 2024"
+        date: "March 14, 2024"
       }
     ],
     qa: []

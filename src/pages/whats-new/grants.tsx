@@ -44,7 +44,7 @@ const grants = [
 const resources = [
   {
     title: 'Grant Writing Workshop',
-    date: 'March 20, 2024',
+    date: 'March 25, 2024',
     type: 'Virtual Event'
   },
   {

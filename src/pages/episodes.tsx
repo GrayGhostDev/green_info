@@ -12,36 +12,12 @@ interface Episode {
 
 const featuredEpisodes: Episode[] = [
   {
-    title: "Urban Sustainability Revolution",
+    title: "Sustainable Urban Development",
     guest: "Dr. Sarah Chen",
-    description: "Exploring innovative solutions for sustainable urban development and green technology integration in modern cities.",
-    image: "/images/Fwd_ GIUS PICS/20241019_134006.jpg",
-    duration: "1:45:23",
-    date: "Mar 15, 2024"
-  },
-  {
-    title: "Green Energy Transformation",
-    guest: "Michael Rodriguez",
-    description: "Discussing the future of renewable energy and its impact on urban communities.",
-    image: "/images/Fwd_ GIUS PICS/20241218_150055.jpg",
-    duration: "2:12:45",
-    date: "Mar 10, 2024"
-  },
-  {
-    title: "Smart Cities & Sustainability",
-    guest: "Dr. James Wilson",
-    description: "How smart technology is revolutionizing urban planning and environmental conservation.",
-    image: "/images/Fwd_ GIUS PICS/20241218_152304.jpg",
-    duration: "1:58:30",
-    date: "Mar 5, 2024"
-  },
-  {
-    title: "Community-Led Green Initiatives",
-    guest: "Lisa Thompson",
-    description: "Exploring successful grassroots movements in urban sustainability and their lasting impact on communities.",
-    image: "/images/Fwd_ GIUS PICS/20241218_151736.jpg",
-    duration: "1:35:15",
-    date: "Feb 28, 2024"
+    description: "Exploring innovative solutions for sustainable urban development and green technology integration.",
+    image: "/images/Fwd_ GIUS PICS/20241218_152321.jpg",
+    duration: "1:55:30",
+    date: "March 13, 2024"
   },
   {
     title: "Urban Agriculture Revolution",
@@ -49,7 +25,7 @@ const featuredEpisodes: Episode[] = [
     description: "Innovative approaches to urban farming and sustainable food production in city environments.",
     image: "/images/Fwd_ GIUS PICS/20241218_152321.jpg",
     duration: "2:05:40",
-    date: "Feb 21, 2024"
+    date: "March 6, 2024"
   },
   {
     title: "Clean Air Technologies",
@@ -57,7 +33,7 @@ const featuredEpisodes: Episode[] = [
     description: "Breaking down the latest innovations in air purification and their implementation in urban spaces.",
     image: "/images/Fwd_ GIUS PICS/20241019_134006.jpg",
     duration: "1:48:55",
-    date: "Feb 14, 2024"
+    date: "February 28, 2024"
   },
   {
     title: "Sustainable Transportation",
@@ -65,7 +41,7 @@ const featuredEpisodes: Episode[] = [
     description: "The future of urban mobility and eco-friendly transportation solutions for growing cities.",
     image: "/images/Fwd_ GIUS PICS/20241218_150055.jpg",
     duration: "2:15:20",
-    date: "Feb 7, 2024"
+    date: "February 21, 2024"
   },
   {
     title: "Green Building Innovation",
@@ -73,7 +49,7 @@ const featuredEpisodes: Episode[] = [
     description: "Exploring cutting-edge sustainable architecture and eco-friendly construction practices.",
     image: "/images/Fwd_ GIUS PICS/20241218_152304.jpg",
     duration: "1:52:10",
-    date: "Jan 31, 2024"
+    date: "February 14, 2024"
   }
 ]
 
