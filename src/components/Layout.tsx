@@ -8,7 +8,9 @@ import { withBasePath } from '../utils/basePath'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
-  { name: 'Podcast', href: '/podcast' }
+  { name: 'Podcast', href: '/podcast' },
+  { name: "What's New", href: '/whats-new' },
+  { name: "I'm Not That Green Guy", href: '/community' }
 ]
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -35,6 +37,74 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <Link href="/podcast" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
                 Podcast
+              </Link>
+              <Menu as="div" className="relative">
+                <Menu.Button className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+                  What's New
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-1"
+                >
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-xl bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/whats-new/gardening"
+                          className={`${
+                            active ? 'bg-gray-100' : ''
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Gardening
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/whats-new/energy"
+                          className={`${
+                            active ? 'bg-gray-100' : ''
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Energy
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/whats-new/services"
+                          className={`${
+                            active ? 'bg-gray-100' : ''
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Services
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/whats-new/grants"
+                          className={`${
+                            active ? 'bg-gray-100' : ''
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Grants & Funding
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+              <Link href="/community" className="nav-link px-3 py-2 text-sm font-medium text-gray-900">
+                I'm Not That Green Guy
               </Link>
             </div>
           </div>
