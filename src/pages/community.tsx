@@ -38,6 +38,27 @@ const sampleTopics: Topic[] = [
   }
 ]
 
+const services = [
+  {
+    title: 'Energy Audit Services',
+    description: 'Professional assessment of your property\'s energy efficiency.',
+    image: '/images/Fwd_ GIUS PICS/20241218_150055.jpg',
+    category: 'Energy'
+  },
+  {
+    title: 'Garden Consultation',
+    description: 'Expert advice on creating and maintaining sustainable gardens.',
+    image: '/images/Fwd_ GIUS PICS/20241218_152321.jpg',
+    category: 'Gardening'
+  },
+  {
+    title: 'Recycling Program Setup',
+    description: 'Assistance in establishing effective recycling systems.',
+    image: '/images/Fwd_ GIUS PICS/20241218_152304.jpg',
+    category: 'Waste Management'
+  }
+]
+
 export default function Community() {
   const [activeTab, setActiveTab] = useState<'all' | 'questions' | 'stories' | 'knowledge'>('all')
   const [showSubmitForm, setShowSubmitForm] = useState(false)
@@ -72,7 +93,7 @@ export default function Community() {
         <div className="relative z-10 pt-24 pb-32">
           {/* Hero Section */}
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-16">
-            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-white mb-6 [text-shadow:_-1px_-1px_0_#00A651,_1px_-1px_0_#00A651,_-1px_1px_0_#00A651,_1px_1px_0_#00A651]">
               I'm Not That Green Guy
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">

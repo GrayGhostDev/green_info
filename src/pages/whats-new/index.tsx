@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../../components/Layout'
-import Link from 'next/link'
+import Image from 'next/image'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 const categories = [
@@ -66,21 +66,151 @@ const categories = [
   }
 ]
 
+// Articles data for each category
+const gardeningArticles = [
+  {
+    title: 'Urban Garden Design Trends 2024',
+    date: 'March 18, 2024',
+    description: 'Discover the latest trends in urban gardening, from vertical gardens to smart irrigation systems.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153950.jpg',
+    category: 'Trends'
+  },
+  {
+    title: 'Starting Your Community Garden',
+    date: 'March 15, 2024',
+    description: 'A comprehensive guide to initiating and managing a successful community garden project.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153911.jpg',
+    category: 'Community'
+  },
+  {
+    title: 'Seasonal Planting Guide: Spring',
+    date: 'March 12, 2024',
+    description: 'What to plant this spring for a bountiful summer harvest in your urban garden.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153904.jpg',
+    category: 'Guides'
+  }
+]
+
+const energyArticles = [
+  {
+    title: 'Solar Panel Incentives 2024',
+    date: 'March 17, 2024',
+    description: 'Learn about the latest government incentives and rebates for installing solar panels in your home.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153838.jpg',
+    category: 'Incentives'
+  },
+  {
+    title: 'Energy-Saving Home Improvements',
+    date: 'March 14, 2024',
+    description: 'Practical tips and improvements to reduce your home\'s energy consumption and lower utility bills.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153834.jpg',
+    category: 'Tips'
+  },
+  {
+    title: 'Community Solar Projects',
+    date: 'March 11, 2024',
+    description: 'How communities are coming together to create shared solar energy solutions.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153803.jpg',
+    category: 'Community'
+  }
+]
+
+const grants = [
+  {
+    title: 'Community Garden Grants',
+    description: 'Available funding for starting and maintaining community gardens.',
+    deadline: 'April 30, 2024',
+    amount: '$5,000 - $15,000'
+  },
+  {
+    title: 'Solar Energy Installation Support',
+    description: 'Financial assistance for residential solar panel installations.',
+    deadline: 'May 15, 2024',
+    amount: 'Up to $10,000'
+  },
+  {
+    title: 'Green Business Innovation Fund',
+    description: 'Grants for businesses implementing sustainable practices.',
+    deadline: 'June 1, 2024',
+    amount: '$20,000 - $50,000'
+  }
+]
+
+const services = [
+  {
+    title: 'Energy Audit Services',
+    description: 'Professional assessment of your property\'s energy efficiency.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153746.jpg',
+    category: 'Energy'
+  },
+  {
+    title: 'Garden Consultation',
+    description: 'Expert advice on creating and maintaining sustainable gardens.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153724.jpg',
+    category: 'Gardening'
+  },
+  {
+    title: 'Recycling Program Setup',
+    description: 'Assistance in establishing effective recycling systems.',
+    image: '/images/Fwd_ GIUS PICS/20241106_153705.jpg',
+    category: 'Waste Management'
+  }
+]
+
 export default function WhatsNew() {
+  const [activeTab, setActiveTab] = useState('gardening')
+
   useIntersectionObserver({
     targetSelector: '.fade-in',
     threshold: 0.2
   })
+
+  const renderArticleCard = (article: any) => (
+    <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300 hover:scale-102">
+      <div className="relative h-48 w-full">
+        <Image
+          src={article.image}
+          alt={article.title}
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#00A651]/20 text-[#00A651]">
+            {article.category}
+          </span>
+          <span className="text-sm text-gray-400">{article.date}</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-2">{article.title}</h3>
+        <p className="text-gray-300">{article.description}</p>
+      </div>
+    </div>
+  )
+
+  const renderGrantCard = (grant: any) => (
+    <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+      <h3 className="text-xl font-semibold text-white mb-2">{grant.title}</h3>
+      <p className="text-gray-300 mb-4">{grant.description}</p>
+      <div className="flex justify-between items-center text-sm">
+        <span className="text-[#00A651]">Deadline: {grant.deadline}</span>
+        <span className="text-orange-400">{grant.amount}</span>
+      </div>
+    </div>
+  )
 
   return (
     <Layout>
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
         {/* Background Logo */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/greenInfo_Logo.pdf.png"
             alt="Background Logo"
-            className="w-full h-full object-cover opacity-15 fixed"
+            fill
+            className="opacity-15 fixed object-cover"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
         </div>
@@ -93,39 +223,79 @@ export default function WhatsNew() {
               What's New
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Stay updated with the latest developments in sustainable living, community initiatives, and green technology.
+              Stay updated with the latest in sustainable living, community initiatives, and green technology.
             </p>
           </div>
 
-          {/* Categories Grid */}
+          {/* Tabs */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-2">
-              {categories.map((category) => (
-                <Link
-                  key={category.title}
-                  href={category.href}
-                  className="group bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-105"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center group-hover:bg-[#00A651]/30 transition-colors">
-                      {category.icon}
-                    </div>
-                    <h2 className="text-2xl font-bold text-white group-hover:text-[#00A651] transition-colors">
-                      {category.title}
-                    </h2>
-                  </div>
-                  <p className="text-gray-300 mb-6">{category.description}</p>
-                  <div className="space-y-2">
-                    {category.updates.map((update, index) => (
-                      <div key={index} className="flex items-center gap-2 text-gray-400">
-                        <svg className="h-5 w-5 text-[#00A651]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                        <span>{update}</span>
-                      </div>
-                    ))}
-                  </div>
-                </Link>
+            <div className="flex space-x-4 overflow-x-auto pb-4 mb-8">
+              <button
+                onClick={() => setActiveTab('gardening')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                  activeTab === 'gardening'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Gardening
+              </button>
+              <button
+                onClick={() => setActiveTab('energy')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                  activeTab === 'energy'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Energy
+              </button>
+              <button
+                onClick={() => setActiveTab('services')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                  activeTab === 'services'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Services
+              </button>
+              <button
+                onClick={() => setActiveTab('grants')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                  activeTab === 'grants'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Grants & Funding
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {activeTab === 'gardening' && gardeningArticles.map((article, index) => (
+                <div key={index}>
+                  {renderArticleCard(article)}
+                </div>
+              ))}
+              
+              {activeTab === 'energy' && energyArticles.map((article, index) => (
+                <div key={index}>
+                  {renderArticleCard(article)}
+                </div>
+              ))}
+              
+              {activeTab === 'services' && services.map((service, index) => (
+                <div key={index}>
+                  {renderArticleCard(service)}
+                </div>
+              ))}
+              
+              {activeTab === 'grants' && grants.map((grant, index) => (
+                <div key={index}>
+                  {renderGrantCard(grant)}
+                </div>
               ))}
             </div>
           </div>

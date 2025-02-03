@@ -69,7 +69,7 @@ const Home: NextPage = () => {
         </div>
 
         {/* Header Section */}
-        <header className="relative z-30 min-h-[80vh] flex items-center justify-center">
+        <header className="relative z-30 min-h-[90vh] flex items-center justify-center pt-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
               Bridging the Gap between Communities and Green Space
