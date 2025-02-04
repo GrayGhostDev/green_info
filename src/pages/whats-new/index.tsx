@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Layout from '../../components/Layout'
 import Image from 'next/image'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
+import { withBasePath } from '../../utils/basePath'
+import Head from 'next/head'
 
 const categories = [
   {
@@ -201,18 +203,28 @@ export default function WhatsNew() {
 
   return (
     <Layout>
+      <Head>
+        <title>What's New - Green Info Urban Style</title>
+        <meta name="description" content="Stay updated with the latest in sustainable living, community initiatives, and green technology. Explore our latest updates on gardening, energy, services, and funding opportunities." />
+        <meta name="keywords" content="sustainable living, green updates, community initiatives, urban gardening, green energy, sustainability services, environmental grants" />
+        <meta property="og:title" content="What's New - Green Info Urban Style" />
+        <meta property="og:description" content="Stay updated with the latest in sustainable living, community initiatives, and green technology." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
-        {/* Background Logo */}
-        <div className="absolute inset-0">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/greenInfo_Logo.pdf.png"
-            alt="Background Logo"
-            fill
-            className="opacity-15 fixed object-cover"
+            src={withBasePath('/images/greenInfo_Logo.pdf.png')}
+            alt="Green Info Urban Style Logo"
+            width={800}
+            height={800}
+            className="w-full h-full object-cover opacity-40 fixed"
             priority
-            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
         </div>
 
         {/* Content */}
@@ -229,10 +241,10 @@ export default function WhatsNew() {
 
           {/* Tabs */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex space-x-4 overflow-x-auto pb-4 mb-8">
+            <div className="flex space-x-12 justify-center overflow-x-auto pb-20 mb-16">
               <button
                 onClick={() => setActiveTab('gardening')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
                   activeTab === 'gardening'
                     ? 'bg-[#00A651] text-white'
                     : 'bg-black/30 text-gray-300 hover:bg-black/50'
@@ -242,7 +254,7 @@ export default function WhatsNew() {
               </button>
               <button
                 onClick={() => setActiveTab('energy')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
                   activeTab === 'energy'
                     ? 'bg-[#00A651] text-white'
                     : 'bg-black/30 text-gray-300 hover:bg-black/50'
@@ -252,7 +264,7 @@ export default function WhatsNew() {
               </button>
               <button
                 onClick={() => setActiveTab('services')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
                   activeTab === 'services'
                     ? 'bg-[#00A651] text-white'
                     : 'bg-black/30 text-gray-300 hover:bg-black/50'
@@ -262,7 +274,7 @@ export default function WhatsNew() {
               </button>
               <button
                 onClick={() => setActiveTab('grants')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
                   activeTab === 'grants'
                     ? 'bg-[#00A651] text-white'
                     : 'bg-black/30 text-gray-300 hover:bg-black/50'

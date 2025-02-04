@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Head from 'next/head'
 
 const solutions = [
   {
@@ -90,6 +92,17 @@ export default function Services() {
 
   return (
     <Layout>
+      <Head>
+        <title>Services - Green Info Urban Style</title>
+        <meta name="description" content="Explore our comprehensive range of green services including energy audits, sustainable solutions, and environmental consulting. Transform your space with our expert services." />
+        <meta name="keywords" content="green services, energy audits, sustainability consulting, environmental services, green solutions, urban sustainability" />
+        <meta property="og:title" content="Services - Green Info Urban Style" />
+        <meta property="og:description" content="Transform your space with our comprehensive range of green services and sustainable solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       {/* Hero Section */}
       <div className="relative min-h-[60vh] bg-gradient-to-br from-primary-700/80 via-primary-600/80 to-primary-800/80">
         <div className="absolute inset-0 transform transition-transform duration-[3s] hover:scale-102">

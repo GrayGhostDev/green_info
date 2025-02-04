@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Head from 'next/head'
 
 interface Episode {
   title: string
@@ -66,8 +69,24 @@ export default function Episodes() {
     document.body.style.overflow = 'auto'
   }
 
+  useIntersectionObserver({
+    targetSelector: '.fade-in',
+    threshold: 0.2
+  })
+
   return (
     <Layout>
+      <Head>
+        <title>Podcast Episodes - Green Info Urban Style</title>
+        <meta name="description" content="Browse and listen to our collection of podcast episodes covering sustainable urban development, green technology, and community innovation. Get insights from industry experts and thought leaders." />
+        <meta name="keywords" content="green podcast episodes, sustainability discussions, urban development talks, environmental podcast, green technology interviews" />
+        <meta property="og:title" content="Podcast Episodes - Green Info Urban Style" />
+        <meta property="og:description" content="Listen to our latest episodes on sustainable urban development, green technology, and community innovation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/Fwd_ GIUS PICS/20241218_150055.jpg')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
         {/* Background Logo */}
         <div className="absolute inset-0">

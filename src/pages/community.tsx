@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Head from 'next/head'
 
 interface Topic {
   id: number
@@ -78,6 +80,17 @@ export default function Community() {
 
   return (
     <Layout>
+      <Head>
+        <title>Community - I'm Not That Green Guy | Green Info Urban Style</title>
+        <meta name="description" content="Join our community space where everyone can learn, share, and grow together in their green journey. Share your stories, ask questions, and connect with like-minded individuals." />
+        <meta name="keywords" content="green community, sustainability learning, environmental education, community stories, green knowledge sharing" />
+        <meta property="og:title" content="Community - I'm Not That Green Guy | Green Info Urban Style" />
+        <meta property="og:description" content="A space for everyone to learn, share, and grow together in their green journey." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
         {/* Background Logo */}
         <div className="absolute inset-0">

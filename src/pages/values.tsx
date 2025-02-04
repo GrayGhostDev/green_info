@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Head from 'next/head'
 
 const values = [
   {
@@ -49,6 +51,17 @@ export default function Values() {
 
   return (
     <Layout>
+      <Head>
+        <title>Our Values - Green Info Urban Style</title>
+        <meta name="description" content="Discover the core values that drive Green Info Urban Style's mission for sustainable urban development. Learn about our commitment to innovation, community, and environmental stewardship." />
+        <meta name="keywords" content="green values, sustainability principles, environmental values, community commitment, urban sustainability values" />
+        <meta property="og:title" content="Our Values - Green Info Urban Style" />
+        <meta property="og:description" content="Explore the principles and values that guide our mission for sustainable urban development." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
         {/* Background Logo */}
         <div className="absolute inset-0 overflow-hidden">

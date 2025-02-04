@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { withBasePath } from '../utils/basePath'
+import Image from 'next/image'
+import Head from 'next/head'
 
 interface PressKitFormData {
   firstName: string
@@ -146,363 +149,95 @@ export default function About() {
 
   return (
     <Layout>
-      <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 w-full h-full opacity-5">
-          <div className="absolute inset-0 w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px',
-            backgroundRepeat: 'repeat'
-          }} />
+      <Head>
+        <title>About Us - Green Info Urban Style</title>
+        <meta name="description" content="Learn about Green Info Urban Style's mission to enhance urban communities through sustainable practices, green living, and innovative technology solutions." />
+        <meta name="keywords" content="green innovation, urban sustainability, community development, environmental solutions, about us" />
+        <meta property="og:title" content="About Us - Green Info Urban Style" />
+        <meta property="og:description" content="Discover our mission to bridge the gap between urban communities and green space initiatives." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
+      <div className="relative min-h-screen">
+        {/* Background Layers */}
+        <div className="absolute inset-0">
+          {/* Base gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
+          
+          {/* Extended Logo Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+              alt="Background Logo"
+              className="w-full h-full object-cover opacity-40 fixed"
+            />
+          </div>
         </div>
 
         {/* Content */}
-        <div className="relative py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-              <div className="relative lg:col-start-1">
-                <div className="relative mb-8 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:gap-8">
-                  <div className="fade-in-left group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="pt-4">
-                      <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Vision</h2>
-                      <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
-                        Leading Green Innovation
-                      </p>
-                      <p className="mt-4 text-lg text-gray-300">
-                        To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="fade-in-right group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="pt-4">
-                      <h2 className="text-base font-semibold uppercase tracking-wider text-primary-400">Our Mission</h2>
-                      <p className="mt-2 text-3xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
-                        Enhancing Communities
-                      </p>
-                      <p className="mt-4 text-lg text-gray-300">
-                        To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Highlights Section */}
-      <div className="relative overflow-hidden bg-black py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
-              <span className="text-base font-semibold uppercase tracking-wider">Our Focus</span>
-            </div>
-            <p className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl [text-wrap:balance]">
-              Key Areas of Impact
-            </p>
-            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-300">
-              We are dedicated to leading the way in promoting green information and energy efficiency innovations while delivering exceptional value to the community.
-            </p>
-          </div>
-          <div className="mt-16">
-            <div className="grid gap-12 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
-              {highlights.map((highlight, index) => (
-                <div
-                  key={highlight.name}
-                  className={`group relative ${
-                    index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
-                  }`}
-                >
-                  <div className="relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                        {highlight.icon}
-                      </span>
-                    </div>
-                    <div className="pt-4">
-                      <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-primary-400 transition-colors duration-300">
-                        {highlight.name}
-                      </h3>
-                      <p className="mt-4 text-lg text-gray-300">{highlight.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Commitments Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
-              <span className="text-base font-semibold uppercase tracking-wider">Our Commitments</span>
-            </div>
-            <p className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl [text-wrap:balance]">
-              What We Stand For
-            </p>
-            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-300">
-              Our commitments reflect our dedication to creating positive change in urban communities through sustainable practices and innovative solutions.
-            </p>
-          </div>
-          <div className="mt-16">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {commitments.map((commitment, index) => (
-                <div
-                  key={commitment}
-                  className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
-                    index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
-                  }`}
-                >
-                  <div className="flex items-center">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-600 text-white shadow-lg">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <p className="ml-4 text-lg font-medium text-white group-hover:text-primary-400 transition-colors duration-300">
-                      {commitment}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Press Kit Form Section */}
-      <div className="relative overflow-hidden bg-black py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 0h60v60H0V0zm30 30h30v30H30V30zM0 30h30v30H0V30zm0-30h30v30H0V0zm30 0h30v30H30V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center rounded-full bg-primary-900/30 px-6 py-2 text-primary-200 ring-1 ring-inset ring-primary-500/20">
-              <span className="text-base font-semibold uppercase tracking-wider">Media Resources</span>
-            </div>
-            <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              Press Kit Request
-            </h2>
-            <p className="mx-auto mt-5 max-w-prose text-xl text-gray-300">
-              Get access to our media resources, high-resolution images, and podcast information for press coverage.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6 fade-in">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-300">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    autoComplete="given-name"
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-300">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    autoComplete="family-name"
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    autoComplete="email"
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="organization" className="block text-sm font-medium text-gray-300">
-                    Organization
-                  </label>
-                  <input
-                    type="text"
-                    name="organization"
-                    id="organization"
-                    value={formData.organization}
-                    onChange={handleInputChange}
-                    required
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="mediaType" className="block text-sm font-medium text-gray-300">
-                    Media Type
-                  </label>
-                  <select
-                    id="mediaType"
-                    name="mediaType"
-                    value={formData.mediaType}
-                    onChange={handleInputChange}
-                    required
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  >
-                    <option value="Print Media">Print Media</option>
-                    <option value="Online Publication">Online Publication</option>
-                    <option value="Broadcast Media">Broadcast Media</option>
-                    <option value="Podcast">Podcast</option>
-                    <option value="Blog">Blog</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">
-                    How do you plan to use our press kit?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="mt-1 block w-full rounded-md bg-gray-900/50 border border-gray-600 py-2 px-3 text-white placeholder-gray-400 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <input
-                        id="terms"
-                        name="terms"
-                        type="checkbox"
-                        checked={formData.terms}
-                        onChange={handleInputChange}
-                        required
-                        className="h-4 w-4 rounded border-gray-600 bg-gray-900/50 text-primary-600 focus:ring-primary-500"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-gray-300">
-                        I agree to the{' '}
-                        <a href="#" className="font-medium text-primary-400 hover:text-primary-300">
-                          terms and conditions
-                        </a>
-                        {' '}for using the press kit materials.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="rounded-md bg-green-900/50 p-4">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-green-400">
-                        Press kit request submitted successfully! We'll be in touch soon.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="rounded-md bg-red-900/50 p-4">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-red-400">
-                        There was an error submitting your request. Please try again.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`inline-flex justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-300 ${
-                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                >
-                  {isSubmitting ? 'Submitting...' : 'Request Press Kit'}
-                </button>
-              </div>
-            </form>
-
-            <div className="mt-12 border-t border-gray-700 pt-8 text-center">
-              <p className="text-sm text-gray-400">
-                Need immediate assistance? Contact our media relations team at{' '}
-                <a href="mailto:press@greeninfo.com" className="text-primary-400 hover:text-primary-300">
-                  press@greeninfo.com
-                </a>
+        <div className="relative z-10 pt-24 pb-32">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Hero Section */}
+            <div className="text-center mb-16">
+              <h1 className="text-4xl sm:text-6xl font-bold text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+                About Us
+              </h1>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
+                At Green Info Urban Style DBA Virtual Management Resource Group, our focus is on bridging the gap between urban communities and green space initiatives.
               </p>
+            </div>
+
+            {/* Mission & Vision */}
+            <div className="grid gap-8 md:grid-cols-2 mb-16">
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
+                <p className="text-gray-300">
+                  To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology for the urban communities.
+                </p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
+                <p className="text-gray-300">
+                  To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
+                </p>
+              </div>
+            </div>
+
+            {/* Values Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-white text-center mb-8">Our Values</h2>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Green Innovation</h3>
+                  <p className="text-gray-300">Driving creative and impactful solutions to urban communities.</p>
+                </div>
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Sustainability</h3>
+                  <p className="text-gray-300">Championing information sharing that enhances urban living.</p>
+                </div>
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Health & Safety</h3>
+                  <p className="text-gray-300">Prioritizing well-being in every project.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Section */}
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+                <p className="text-gray-300 mb-6">
+                  Want to learn more about our initiatives or get involved? We'd love to hear from you.
+                </p>
+                <a
+                  href="mailto:contact@greeninfourbanstyle.com"
+                  className="inline-block px-6 py-3 bg-[#00A651] text-white rounded-xl font-semibold hover:bg-[#00A651]/90 transition-all duration-300 hover:scale-105"
+                >
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
         </div>

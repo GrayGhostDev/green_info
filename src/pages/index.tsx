@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { withBasePath } from '../utils/basePath'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const categories = [
   {
@@ -52,6 +53,17 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Green Info Urban Style - Sustainable Urban Development Solutions</title>
+        <meta name="description" content="Green Info Urban Style provides innovative solutions for sustainable urban development, green technology, and community engagement. Join us in creating a greener future." />
+        <meta name="keywords" content="green technology, urban development, sustainability, community impact, environmental solutions" />
+        <meta property="og:title" content="Green Info Urban Style - Sustainable Urban Development Solutions" />
+        <meta property="og:description" content="Join us in creating sustainable urban communities through innovative solutions and community engagement." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/greenInfo_Logo.pdf.png')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      
       <div className="relative min-h-screen">
         {/* Background Layers */}
         <div className="absolute inset-0">
@@ -63,44 +75,30 @@ const Home: NextPage = () => {
             <img
               src={withBasePath("/images/greenInfo_Logo.pdf.png")}
               alt="Background Logo"
-              className="w-full h-full object-cover opacity-15 fixed"
+              className="w-full h-full object-cover opacity-40 fixed"
             />
           </div>
         </div>
 
         {/* Header Section */}
-        <header className="relative z-30 min-h-[90vh] flex items-center justify-center pt-16">
+        <header className="relative z-30 min-h-[70vh] flex items-center justify-center pt-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
               Bridging the Gap between Communities and Green Space
             </h1>
-            <p className="text-2xl sm:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
+            <p className="text-2xl sm:text-3xl text-gray-300 mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
               Connecting communities with sustainable solutions that promote environmental awareness and green living.
             </p>
-            <div className="flex justify-center gap-6 animate-fadeIn opacity-0 [animation-delay:750ms] [animation-fill-mode:forwards]">
-              <Link
-                href="/podcast"
-                className="rounded-xl bg-orange-700/90 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-orange-700/20 hover:bg-orange-600/90 transition-all duration-300 hover:shadow-orange-600/40 backdrop-blur-sm hover:scale-105"
-              >
-                Listen Now
-              </Link>
-              <Link
-                href="/about"
-                className="rounded-xl bg-black/50 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/20 hover:bg-black/70 transition-all duration-300 hover:shadow-black/40 backdrop-blur-sm hover:scale-105"
-              >
-                About Us
-              </Link>
-            </div>
           </div>
         </header>
 
         {/* Main Content */}
         <main className="relative z-30">
           {/* Focus Areas Section */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#00A651] mb-4">Our Focus Areas</h2>
-              <p className="text-xl text-gray-300">Driving sustainable change through innovation and community engagement</p>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="text-center mb-8">
+              <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-2">Our Focus Areas</h2>
+              <p className="text-2xl text-gray-300">Driving sustainable change through innovation and community engagement</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {categories.map((category) => (
@@ -108,7 +106,7 @@ const Home: NextPage = () => {
                   <div className="h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center mb-4">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{category.name}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-2">{category.name}</h3>
                   <p className="text-gray-300">{category.description}</p>
                 </div>
               ))}
@@ -119,7 +117,7 @@ const Home: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-[#00A651] mb-6">Green Info Urban Style Podcast</h2>
+                <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-6">Green Info Urban Style Podcast</h2>
                 <p className="text-xl text-gray-300 mb-8">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
                 <div className="flex gap-4 justify-center lg:justify-start">
                   <a
@@ -153,7 +151,7 @@ const Home: NextPage = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-[#00A651]/10 backdrop-blur-sm rounded-2xl p-12 relative overflow-hidden">
               <div className="relative z-10">
-                <h2 className="text-4xl font-bold text-white mb-6 text-center">Ready to Make a Difference?</h2>
+                <h2 className="text-5xl sm:text-6xl font-bold text-white mb-6 text-center">Ready to Make a Difference?</h2>
                 <p className="text-xl text-gray-300 mb-8 text-center max-w-2xl mx-auto">
                   Join us in creating sustainable urban communities through innovative solutions and community engagement.
                 </p>

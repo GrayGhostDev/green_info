@@ -4,6 +4,8 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { InlineWidget } from 'react-calendly'
 import { StarIcon, ShareIcon, ForwardIcon, BackwardIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
+import Head from 'next/head'
+import { withBasePath } from '../utils/basePath'
 
 interface Comment {
   id: number
@@ -279,6 +281,17 @@ export default function Podcast() {
 
   return (
     <Layout>
+      <Head>
+        <title>Podcast - Green Info Urban Style</title>
+        <meta name="description" content="Listen to the Green Info Urban Style Podcast for insightful discussions on sustainable urban development, green technology, and community innovation with industry experts." />
+        <meta name="keywords" content="green podcast, sustainability podcast, urban development podcast, environmental podcast, green technology discussions" />
+        <meta property="og:title" content="Podcast - Green Info Urban Style" />
+        <meta property="og:description" content="Join us for engaging discussions on sustainable urban development, green technology, and community innovation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withBasePath('/images/Fwd_ GIUS PICS/20241218_150055.jpg')} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       {/* Hero Section */}
       <div className="relative min-h-screen bg-black">
         {backgroundImages.map((image, index) => (
