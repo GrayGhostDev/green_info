@@ -314,7 +314,7 @@ export default function Podcast() {
 
         <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-orange-600 sm:text-6xl">
               Green Info Urban Style Podcast
             </h1>
             <p className="mt-6 text-xl text-gray-300">
@@ -328,7 +328,7 @@ export default function Podcast() {
       <div className="relative bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Latest Episodes</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">Latest Episodes</h2>
             <p className="mt-4 text-lg text-gray-300">Stay up to date with our newest conversations and insights.</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
