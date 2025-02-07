@@ -6,6 +6,7 @@ import { StarIcon, ShareIcon, ForwardIcon, BackwardIcon } from '@heroicons/react
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import Head from 'next/head'
 import { withBasePath } from '../utils/basePath'
+import PodcastScene from '../components/PodcastScene'
 
 interface Comment {
   id: number
@@ -292,183 +293,188 @@ export default function Podcast() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Hero Section */}
       <div className="relative min-h-screen bg-black">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={image}
-            className={`absolute inset-0 transition-all duration-1500 ease-in-out transform ${
-              index === currentImageIndex 
-                ? 'opacity-30 scale-100'
-                : 'opacity-0 scale-105'
-            }`}
-          >
+        {/* Background Layers */}
+        <div className="absolute inset-0">
+          {/* Base gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
+          
+          {/* Extended Logo Background */}
+          <div className="absolute inset-0 w-full h-full">
             <img
-              src={image}
-              alt={`Background ${index + 1}`}
-              className="h-full w-full object-cover"
+              src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+              alt="Background Logo"
+              className="w-full h-full object-cover opacity-40 fixed"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-          </div>
-        ))}
-
-        <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-orange-600 sm:text-6xl">
-              Green Info Urban Style Podcast
-            </h1>
-            <p className="mt-6 text-xl text-gray-300">
-              Join us as we explore sustainable urban development, green technology, and community innovation through engaging discussions with industry experts.
-            </p>
           </div>
         </div>
-      </div>
 
-      {/* Latest Episodes Section */}
-      <div className="relative bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">Latest Episodes</h2>
-            <p className="mt-4 text-lg text-gray-300">Stay up to date with our newest conversations and insights.</p>
+        {/* 3D Scene */}
+        <div className="relative z-10">
+          <PodcastScene />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          {/* Hero Section */}
+          <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 lg:py-56">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl font-bold tracking-tight text-orange-600 sm:text-6xl">
+                Green Info Urban Style Podcast
+              </h1>
+              <p className="mt-6 text-xl text-gray-300">
+                Join us as we explore sustainable urban development, green technology, and community innovation through engaging discussions with industry experts.
+              </p>
+            </div>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredEpisodes.map((episode, index) => (
-              <div
-                key={episode.title}
-                className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
-                  index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
-                }`}
-              >
-                <div className="relative aspect-[16/9]">
-                  <img
-                    src={episode.image}
-                    alt={episode.title}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex justify-between text-sm text-white">
-                      <span>{episode.duration}</span>
-                      <span>{episode.date}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
-                    {episode.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-300">with {episode.guest}</p>
-                  <p className="mt-4 text-base text-gray-300">{episode.description}</p>
-                  <button className="mt-6 inline-flex items-center text-primary-400 hover:text-primary-300">
-                    Listen now
-                    <svg className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </div>
+
+          {/* Latest Episodes Section */}
+          <div className="relative bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">Latest Episodes</h2>
+                <p className="mt-4 text-lg text-gray-300">Stay up to date with our newest conversations and insights.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Topics Section */}
-      <div className="relative bg-black py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Topics</h2>
-            <p className="mt-4 text-lg text-gray-300">Explore our key areas of discussion and expertise.</p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {topics.map((topic, index) => (
-              <div
-                key={topic.title}
-                className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
-                  index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
-                }`}
-              >
-                <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
-                    {topic.icon}
-                  </span>
-                </div>
-                <div className="pt-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
-                    {topic.title}
-                  </h3>
-                  <p className="mt-4 text-base text-gray-300">{topic.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Full Episode Player Section */}
-      <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Full Episodes</h2>
-            <p className="mt-4 text-lg text-gray-300">Dive deep into our complete collection of episodes.</p>
-          </div>
-          <div className="space-y-8">
-            {episodes.map((episode) => (
-              <div
-                key={episode.id}
-                className="relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  <div className="relative aspect-[16/9] lg:aspect-square rounded-xl overflow-hidden">
-                    <img
-                      src={episode.image}
-                      alt={episode.title}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="lg:col-span-2">
-                    <h3 className="text-2xl font-bold text-white">{episode.title}</h3>
-                    <p className="mt-2 text-sm text-gray-300">with {episode.guest} - {episode.role}</p>
-                    <p className="mt-4 text-base text-gray-300">{episode.description}</p>
-                    <div className="mt-6 flex flex-wrap gap-4">
-                      {episode.topics.map((topic) => (
-                        <span
-                          key={topic}
-                          className="inline-flex items-center rounded-full bg-primary-900/30 px-3 py-1 text-sm text-primary-200 ring-1 ring-inset ring-primary-500/20"
-                        >
-                          {topic}
-                        </span>
-                      ))}
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {featuredEpisodes.map((episode, index) => (
+                  <div
+                    key={episode.title}
+                    className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                      index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
+                    }`}
+                  >
+                    <div className="relative aspect-[16/9]">
+                      <img
+                        src={episode.image}
+                        alt={episode.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <div className="flex justify-between text-sm text-white">
+                          <span>{episode.duration}</span>
+                          <span>{episode.date}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="mt-6 flex items-center gap-4">
-                      <button
-                        onClick={() => handlePlayEpisode(episode)}
-                        className="inline-flex items-center rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all duration-300"
-                      >
-                        Listen Now
-                      </button>
-                      <button
-                        onClick={() => handleShare(episode)}
-                        className="inline-flex items-center rounded-xl bg-gray-800 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 transition-all duration-300"
-                      >
-                        <ShareIcon className="h-5 w-5" />
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
+                        {episode.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-300">with {episode.guest}</p>
+                      <p className="mt-4 text-base text-gray-300">{episode.description}</p>
+                      <button className="mt-6 inline-flex items-center text-primary-400 hover:text-primary-300">
+                        Listen now
+                        <svg className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
                       </button>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
+
+          {/* Topics Section */}
+          <div className="relative bg-black py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Topics</h2>
+                <p className="mt-4 text-lg text-gray-300">Explore our key areas of discussion and expertise.</p>
+              </div>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {topics.map((topic, index) => (
+                  <div
+                    key={topic.title}
+                    className={`group relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                      index % 3 === 0 ? 'fade-in-left' : index % 3 === 2 ? 'fade-in-right' : 'fade-in'
+                    }`}
+                  >
+                    <div className="absolute -top-4 left-4 transition-transform duration-300 group-hover:scale-110">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg ring-4 ring-black">
+                        {topic.icon}
+                      </span>
+                    </div>
+                    <div className="pt-4">
+                      <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
+                        {topic.title}
+                      </h3>
+                      <p className="mt-4 text-base text-gray-300">{topic.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Full Episode Player Section */}
+          <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Full Episodes</h2>
+                <p className="mt-4 text-lg text-gray-300">Dive deep into our complete collection of episodes.</p>
+              </div>
+              <div className="space-y-8">
+                {episodes.map((episode) => (
+                  <div
+                    key={episode.id}
+                    className="relative rounded-2xl bg-gray-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
+                  >
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <div className="relative aspect-[16/9] lg:aspect-square rounded-xl overflow-hidden">
+                        <img
+                          src={episode.image}
+                          alt={episode.title}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="lg:col-span-2">
+                        <h3 className="text-2xl font-bold text-white">{episode.title}</h3>
+                        <p className="mt-2 text-sm text-gray-300">with {episode.guest} - {episode.role}</p>
+                        <p className="mt-4 text-base text-gray-300">{episode.description}</p>
+                        <div className="mt-6 flex flex-wrap gap-4">
+                          {episode.topics.map((topic) => (
+                            <span
+                              key={topic}
+                              className="inline-flex items-center rounded-full bg-primary-900/30 px-3 py-1 text-sm text-primary-200 ring-1 ring-inset ring-primary-500/20"
+                            >
+                              {topic}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="mt-6 flex items-center gap-4">
+                          <button
+                            onClick={() => handlePlayEpisode(episode)}
+                            className="inline-flex items-center rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all duration-300"
+                          >
+                            Listen Now
+                          </button>
+                          <button
+                            onClick={() => handleShare(episode)}
+                            className="inline-flex items-center rounded-xl bg-gray-800 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 transition-all duration-300"
+                          >
+                            <ShareIcon className="h-5 w-5" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Audio Player Modal */}
+          {currentEpisode && (
+            <div className="fixed bottom-0 inset-x-0 bg-gray-900/95 backdrop-blur-lg border-t border-white/10">
+              <div className="max-w-7xl mx-auto px-4 py-4">
+                {/* Player controls here */}
+              </div>
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Audio Player Modal */}
-      {currentEpisode && (
-        <div className="fixed bottom-0 inset-x-0 bg-gray-900/95 backdrop-blur-lg border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 py-4">
-            {/* Player controls here */}
-          </div>
-        </div>
-      )}
     </Layout>
   )
 } 
