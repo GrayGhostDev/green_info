@@ -224,6 +224,40 @@ export default function About() {
               </div>
             </div>
 
+            {/* Leadership Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-white text-center mb-8">Our Leadership</h2>
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300">
+                <div className="flex flex-col lg:flex-row gap-8 items-center">
+                  <div className="lg:w-1/3">
+                    <div className="relative w-64 h-64 mx-auto">
+                      <img
+                        src={withBasePath("/images/Fwd_ GIUS PICS/20241218_150055.jpg")}
+                        alt="Robert L. Barksdale"
+                        className="w-full h-full object-cover rounded-full border-4 border-[#00A651]"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#00A651] text-center mt-4">Robert L. Barksdale</h3>
+                    <p className="text-gray-300 text-center">Chief Executive Officer</p>
+                  </div>
+                  <div className="lg:w-2/3">
+                    <p className="text-gray-300 mb-4">
+                      Robert L. Barksdale is a visionary leader at the intersection of environmental sustainability, clean air technology, and urban community advocacy. As the Chief Executive Officer of ServiceBot Solutions, Robert is revolutionizing indoor air quality in apartment buildings, churches, nursing homes, hospitals, and schools. His company's patented, custom-designed air purification systems extend the lifespan of existing HVAC units while reducing energy consumption—offering a sustainable solution that improves health outcomes and lowers operational costs.
+                    </p>
+                    <p className="text-gray-300 mb-4">
+                      Robert's commitment to environmental health stems from his own journey as a respiratory patient, which fueled his passion for cleaner air and healthier communities. His leadership has propelled ServiceBot Solutions to the forefront of air quality innovation, delivering measurable improvements in energy efficiency and air purification in underserved communities.
+                    </p>
+                    <p className="text-gray-300 mb-4">
+                      In addition to his work at ServiceBot Solutions, Robert amplifies his impact through Green Info-Urban Style, a powerful podcast dedicated to educating and empowering urban communities on environmental sustainability, public health, and clean energy solutions. Through thought-provoking discussions with industry leaders, policymakers, and grassroots advocates, Green Info-Urban Style sheds light on critical issues affecting urban populations while inspiring actionable change.
+                    </p>
+                    <p className="text-gray-300">
+                      Robert's work is driven by a commitment to sustainability, community empowerment, and innovative solutions that create lasting impact. Whether through groundbreaking air purification technology or transformative conversations on his podcast, he remains dedicated to fostering healthier, more informed, and more resilient communities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Contact Section */}
             <div className="text-center">
               <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
