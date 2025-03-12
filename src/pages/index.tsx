@@ -68,37 +68,20 @@ const Home: NextPage = () => {
         {/* Background Layers */}
         <div className="absolute inset-0">
           {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-70" />
           
-          {/* Brick Wall Background */}
-          <div 
-            className="absolute inset-0 w-full h-full opacity-50"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                #bf5f3f 0px, 
-                #af5535 2px, 
-                #c27255 2px, 
-                #c27255 20px, 
-                #bb6649 20px, 
-                #c27255 22px, 
-                #bb6649 22px, 
-                #c27255 40px
-              ),
-              repeating-linear-gradient(
-                90deg, 
-                #bd644b 0px, 
-                #c27255 2px, 
-                #c27255 40px, 
-                #ac5432 40px, 
-                #c27255 42px, 
-                #c27255 80px
-              )`,
-              backgroundColor: '#9c4a2d',
-              backgroundSize: '80px 40px'
-            }}
-          />
-          
-          {/* Removed the Logo Background */}
+          {/* Brick Wall Background using actual image */}
+          <div className="absolute inset-0 w-full h-full">
+            <div 
+              className="w-full h-full opacity-60"
+              style={{
+                backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'repeat'
+              }}
+            />
+          </div>
         </div>
 
         {/* Header Section - Enhanced contrast */}
