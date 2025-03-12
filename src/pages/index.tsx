@@ -68,9 +68,37 @@ const Home: NextPage = () => {
         {/* Background Layers */}
         <div className="absolute inset-0">
           {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-80" />
           
-          {/* Extended Logo Background - Further reduced opacity */}
+          {/* Brick Wall Background */}
+          <div 
+            className="absolute inset-0 w-full h-full opacity-40"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                #bf5f3f 0px, 
+                #af5535 2px, 
+                #c27255 2px, 
+                #c27255 20px, 
+                #bb6649 20px, 
+                #c27255 22px, 
+                #bb6649 22px, 
+                #c27255 40px
+              ),
+              repeating-linear-gradient(
+                90deg, 
+                #bd644b 0px, 
+                #c27255 2px, 
+                #c27255 40px, 
+                #ac5432 40px, 
+                #c27255 42px, 
+                #c27255 80px
+              )`,
+              backgroundColor: '#9c4a2d',
+              backgroundSize: '80px 40px'
+            }}
+          />
+          
+          {/* Logo Background with reduced opacity */}
           <div className="absolute inset-0 w-full h-full">
             <img
               src={withBasePath("/images/greenInfo_Logo.pdf.png")}
