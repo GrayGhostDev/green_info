@@ -72,7 +72,7 @@ const Home: NextPage = () => {
           
           {/* Brick Wall Background */}
           <div 
-            className="absolute inset-0 w-full h-full opacity-40"
+            className="absolute inset-0 w-full h-full opacity-50"
             style={{
               backgroundImage: `repeating-linear-gradient(
                 #bf5f3f 0px, 
@@ -98,14 +98,7 @@ const Home: NextPage = () => {
             }}
           />
           
-          {/* Logo Background with reduced opacity */}
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src={withBasePath("/images/greenInfo_Logo.pdf.png")}
-              alt="Background Logo"
-              className="w-full h-full object-cover opacity-10 fixed"
-            />
-          </div>
+          {/* Removed the Logo Background */}
         </div>
 
         {/* Header Section - Enhanced contrast */}
