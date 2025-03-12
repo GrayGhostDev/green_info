@@ -70,12 +70,12 @@ const Home: NextPage = () => {
           {/* Base gradient background */}
           <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90" />
           
-          {/* Extended Logo Background */}
+          {/* Extended Logo Background - Modified to be less prominent */}
           <div className="absolute inset-0 w-full h-full">
             <img
               src={withBasePath("/images/greenInfo_Logo.pdf.png")}
               alt="Background Logo"
-              className="w-full h-full object-cover opacity-40 fixed"
+              className="w-full h-full object-cover opacity-20 fixed"
             />
           </div>
         </div>
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
         {/* Header Section */}
         <header className="relative z-30 min-h-[70vh] flex items-center justify-center pt-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_100%),_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000]">
               Bridging the Gap between Communities and Green Space
             </h1>
             <p className="text-2xl sm:text-3xl text-gray-300 mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
