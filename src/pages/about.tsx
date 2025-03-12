@@ -258,6 +258,84 @@ export default function About() {
               </div>
             </div>
 
+            {/* Team Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-white text-center mb-8">Our Team</h2>
+              
+              {/* Team Photo */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 mb-12 hover:bg-black/40 transition-all duration-300">
+                <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-lg">
+                  <img
+                    src={withBasePath("/images/Fwd_ GIUS PICS/20241218_152321.jpg")}
+                    alt="Green Info Urban Style Team"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                    <h3 className="text-2xl font-bold text-white mb-2">The Green Info Urban Style Team</h3>
+                    <p className="text-gray-300">Passionate advocates for sustainable urban communities</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Team Members */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Team Member 1 */}
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-32 h-32 mb-4">
+                      <img
+                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153950.jpg")}
+                        alt="Team Member"
+                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#00A651] mb-1">Donald T. Robinson II</h3>
+                    <p className="text-sm text-gray-400 mb-3">Podcast Engineer</p>
+                  </div>
+                  <p className="text-gray-300 text-center">
+                    Expert audio engineer responsible for the technical production of the Green Info Urban Style podcast, ensuring crystal-clear sound quality and seamless production.
+                  </p>
+                </div>
+                
+                {/* Team Member 2 */}
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-32 h-32 mb-4">
+                      <img
+                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153904.jpg")}
+                        alt="Team Member"
+                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#00A651] mb-1">Sarah Johnson</h3>
+                    <p className="text-sm text-gray-400 mb-3">Community Outreach Manager</p>
+                  </div>
+                  <p className="text-gray-300 text-center">
+                    Passionate about connecting urban communities with sustainable resources, Sarah leads our community engagement initiatives and educational programs.
+                  </p>
+                </div>
+                
+                {/* Team Member 3 */}
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-32 h-32 mb-4">
+                      <img
+                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153834.jpg")}
+                        alt="Team Member"
+                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#00A651] mb-1">Michael Thompson</h3>
+                    <p className="text-sm text-gray-400 mb-3">Sustainability Specialist</p>
+                  </div>
+                  <p className="text-gray-300 text-center">
+                    With expertise in green technology and urban sustainability solutions, Michael advises on practical approaches to integrating eco-friendly practices in urban environments.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Contact Section */}
             <div className="text-center">
               <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
