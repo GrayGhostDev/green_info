@@ -75,7 +75,7 @@ const Home: NextPage = () => {
             <img
               src={withBasePath("/images/greenInfo_Logo.pdf.png")}
               alt="Background Logo"
-              className="w-full h-full object-contain opacity-10 fixed transform scale-90"
+              className="w-full h-full object-cover opacity-10 fixed"
             />
           </div>
         </div>
