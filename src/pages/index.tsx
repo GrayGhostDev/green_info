@@ -75,7 +75,7 @@ const Home: NextPage = () => {
             <div 
               className="w-full h-full opacity-40"
               style={{
-                backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
+                backgroundImage: `url(${withBasePath("/images/GIUS_Brick002.png")})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'repeat'
