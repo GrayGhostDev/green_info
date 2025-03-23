@@ -124,7 +124,7 @@ const Home: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-6">Green Info Urban Style Podcast</h2>
+                <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-6">Podcast</h2>
                 <p className="text-xl text-gray-300 mb-8">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
                 <div className="flex gap-4 justify-center lg:justify-start">
                   <a
