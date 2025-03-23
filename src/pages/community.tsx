@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { withBasePath } from '../utils/basePath'
 import Head from 'next/head'
+import Image from 'next/image'
 
 interface Topic {
   id: number
@@ -11,6 +12,9 @@ interface Topic {
   votes: number
   comments: number
   category: 'question' | 'story' | 'knowledge'
+  image: string
+  date: string
+  content: string
 }
 
 const sampleTopics: Topic[] = [
@@ -20,7 +24,10 @@ const sampleTopics: Topic[] = [
     description: "I want to reduce my waste but don't have much space. Looking for practical tips!",
     votes: 45,
     comments: 12,
-    category: 'question'
+    category: 'question',
+    image: '/images/Fwd_ GIUS PICS/20241218_150055.jpg',
+    date: '2024-12-18',
+    content: 'I want to reduce my waste but don\'t have much space. Looking for practical tips!'
   },
   {
     id: 2,
@@ -28,7 +35,10 @@ const sampleTopics: Topic[] = [
     description: "How I transformed my concrete balcony into a thriving garden space.",
     votes: 38,
     comments: 8,
-    category: 'story'
+    category: 'story',
+    image: '/images/Fwd_ GIUS PICS/20241218_152321.jpg',
+    date: '2024-12-18',
+    content: 'How I transformed my concrete balcony into a thriving garden space.'
   },
   {
     id: 3,
@@ -36,7 +46,10 @@ const sampleTopics: Topic[] = [
     description: "Sharing some easy ways to reduce energy consumption without making permanent changes.",
     votes: 62,
     comments: 15,
-    category: 'knowledge'
+    category: 'knowledge',
+    image: '/images/Fwd_ GIUS PICS/20241218_152304.jpg',
+    date: '2024-12-18',
+    content: 'Sharing some easy ways to reduce energy consumption without making permanent changes.'
   }
 ]
 
@@ -92,21 +105,23 @@ export default function Community() {
       </Head>
 
       <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900">
-        {/* Background Logo */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/greenInfo_Logo.pdf.png"
-            alt="Background Logo"
-            className="w-full h-full object-cover opacity-15 fixed"
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src={withBasePath('/images/greenInfo_Logo.pdf.png')}
+            alt="Green Info Urban Style Logo"
+            width={800}
+            height={800}
+            className="w-full h-full object-cover opacity-40 fixed"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 pt-24 pb-32">
           {/* Hero Section */}
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-16">
-            <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-white mb-6 [text-shadow:_-1px_-1px_0_#00A651,_1px_-1px_0_#00A651,_-1px_1px_0_#00A651,_1px_1px_0_#00A651]">
+            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
               I'm Not That Green Guy
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -116,93 +131,76 @@ export default function Community() {
 
           {/* Main Content */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Tabs and Submit Button */}
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-              <div className="flex space-x-4 overflow-x-auto pb-2">
-                <button
-                  onClick={() => setActiveTab('all')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === 'all'
-                      ? 'bg-[#00A651] text-white'
-                      : 'bg-black/30 text-gray-300 hover:bg-black/50'
-                  }`}
-                >
-                  All Topics
-                </button>
-                <button
-                  onClick={() => setActiveTab('questions')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === 'questions'
-                      ? 'bg-[#00A651] text-white'
-                      : 'bg-black/30 text-gray-300 hover:bg-black/50'
-                  }`}
-                >
-                  Questions
-                </button>
-                <button
-                  onClick={() => setActiveTab('stories')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === 'stories'
-                      ? 'bg-[#00A651] text-white'
-                      : 'bg-black/30 text-gray-300 hover:bg-black/50'
-                  }`}
-                >
-                  Stories
-                </button>
-                <button
-                  onClick={() => setActiveTab('knowledge')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === 'knowledge'
-                      ? 'bg-[#00A651] text-white'
-                      : 'bg-black/30 text-gray-300 hover:bg-black/50'
-                  }`}
-                >
-                  Knowledge Share
-                </button>
-              </div>
+            {/* Tabs */}
+            <div className="flex space-x-12 justify-center overflow-x-auto pb-20 mb-16">
               <button
-                onClick={() => setShowSubmitForm(true)}
-                className="px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-500 transition-all duration-300 hover:scale-105"
+                onClick={() => setActiveTab('all')}
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
+                  activeTab === 'all'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
               >
-                Share Your Story
+                All Topics
+              </button>
+              <button
+                onClick={() => setActiveTab('questions')}
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
+                  activeTab === 'questions'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Questions
+              </button>
+              <button
+                onClick={() => setActiveTab('stories')}
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
+                  activeTab === 'stories'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Stories
+              </button>
+              <button
+                onClick={() => setActiveTab('knowledge')}
+                className={`px-10 py-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-lg ${
+                  activeTab === 'knowledge'
+                    ? 'bg-[#00A651] text-white'
+                    : 'bg-black/30 text-gray-300 hover:bg-black/50'
+                }`}
+              >
+                Knowledge Share
               </button>
             </div>
 
-            {/* Topics Grid */}
-            <div className="grid gap-6">
+            {/* Content Grid */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredTopics.map((topic) => (
-                <div
-                  key={topic.id}
-                  className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-3 ${
-                        topic.category === 'question'
-                          ? 'bg-blue-500/20 text-blue-300'
-                          : topic.category === 'story'
-                          ? 'bg-purple-500/20 text-purple-300'
-                          : 'bg-green-500/20 text-green-300'
-                      }`}>
-                        {topic.category.charAt(0).toUpperCase() + topic.category.slice(1)}
-                      </span>
-                      <h3 className="text-xl font-semibold text-white mb-2">{topic.title}</h3>
-                      <p className="text-gray-300">{topic.description}</p>
-                    </div>
+                <div key={topic.id} className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300 hover:scale-102">
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={topic.image}
+                      alt={topic.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="mt-4 flex items-center gap-4">
-                    <button className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                      </svg>
-                      {topic.votes}
-                    </button>
-                    <button className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                      </svg>
-                      {topic.comments}
-                    </button>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#00A651]/20 text-[#00A651]">
+                        {topic.category}
+                      </span>
+                      <span className="text-sm text-gray-400">{topic.date}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-2">{topic.title}</h3>
+                    <p className="text-gray-300">{topic.content}</p>
+                    <div className="mt-4 flex items-center gap-4">
+                      <button className="text-[#00A651] hover:text-[#00A651]/80 transition-colors duration-300">
+                        Read More
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
