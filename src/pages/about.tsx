@@ -181,10 +181,10 @@ export default function About() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-6xl font-bold text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+              <h1 className="text-5xl sm:text-7xl font-bold text-[#00A651] mb-8 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
                 About Us
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
+              <p className="text-2xl text-gray-300 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">
                 At Green Info Urban Style DBA Virtual Management Resource Group, our focus is on bridging the gap between urban communities and green space initiatives.
               </p>
             </div>
@@ -192,14 +192,14 @@ export default function About() {
             {/* Mission & Vision */}
             <div className="grid gap-8 md:grid-cols-2 mb-16">
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-                <p className="text-gray-300">
+                <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
+                <p className="text-xl text-gray-300">
                   To enhance the quality of life in our immediate communities by fostering green living practices, improving indoor environments, and advancing health and well-being through innovative, sustainable projects and green energy technology for the urban communities.
                 </p>
               </div>
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
-                <p className="text-gray-300">
+                <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
+                <p className="text-xl text-gray-300">
                   To be a trusted leader in green innovation and education for urban communities, improving their health and well-being while reducing energy consumption.
                 </p>
               </div>
@@ -207,26 +207,26 @@ export default function About() {
 
             {/* Values Section */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-white text-center mb-8">Our Values</h2>
+              <h2 className="text-4xl font-bold text-white text-center mb-8">Our Values</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Green Innovation</h3>
-                  <p className="text-gray-300">Driving creative and impactful solutions to urban communities.</p>
+                  <h3 className="text-2xl font-semibold text-[#00A651] mb-3">Green Innovation</h3>
+                  <p className="text-xl text-gray-300">Driving creative and impactful solutions to urban communities.</p>
                 </div>
                 <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Sustainability</h3>
-                  <p className="text-gray-300">Championing information sharing that enhances urban living.</p>
+                  <h3 className="text-2xl font-semibold text-[#00A651] mb-3">Sustainability</h3>
+                  <p className="text-xl text-gray-300">Championing information sharing that enhances urban living.</p>
                 </div>
                 <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                  <h3 className="text-xl font-semibold text-[#00A651] mb-3">Health & Safety</h3>
-                  <p className="text-gray-300">Prioritizing well-being in every project.</p>
+                  <h3 className="text-2xl font-semibold text-[#00A651] mb-3">Health & Safety</h3>
+                  <p className="text-xl text-gray-300">Prioritizing well-being in every project.</p>
                 </div>
               </div>
             </div>
 
             {/* Leadership Section */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-white text-center mb-8">Our Leadership</h2>
+              <h2 className="text-4xl font-bold text-white text-center mb-8">Our Leadership</h2>
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row gap-8 items-center">
                   <div className="lg:w-1/3">
@@ -237,20 +237,20 @@ export default function About() {
                         className="w-full h-full object-cover rounded-full border-4 border-[#00A651]"
                       />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#00A651] text-center mt-4">Robert L. Barksdale</h3>
-                    <p className="text-gray-300 text-center">Chief Executive Officer</p>
+                    <h3 className="text-3xl font-bold text-[#00A651] text-center mt-4">Robert L. Barksdale</h3>
+                    <p className="text-xl text-gray-300 text-center">Chief Executive Officer</p>
                   </div>
                   <div className="lg:w-2/3">
-                    <p className="text-gray-300 mb-4">
+                    <p className="text-xl text-gray-300 mb-4">
                       Robert L. Barksdale is a visionary leader at the intersection of environmental sustainability, clean air technology, and urban community advocacy. As the Chief Executive Officer of ServiceBot Solutions, Robert is revolutionizing indoor air quality in apartment buildings, churches, nursing homes, hospitals, and schools. His company's patented, custom-designed air purification systems extend the lifespan of existing HVAC units while reducing energy consumption—offering a sustainable solution that improves health outcomes and lowers operational costs.
                     </p>
-                    <p className="text-gray-300 mb-4">
+                    <p className="text-xl text-gray-300 mb-4">
                       Robert's commitment to environmental health stems from his own journey as a respiratory patient, which fueled his passion for cleaner air and healthier communities. His leadership has propelled ServiceBot Solutions to the forefront of air quality innovation, delivering measurable improvements in energy efficiency and air purification in underserved communities.
                     </p>
-                    <p className="text-gray-300 mb-4">
+                    <p className="text-xl text-gray-300 mb-4">
                       In addition to his work at ServiceBot Solutions, Robert amplifies his impact through Green Info-Urban Style, a powerful podcast dedicated to educating and empowering urban communities on environmental sustainability, public health, and clean energy solutions. Through thought-provoking discussions with industry leaders, policymakers, and grassroots advocates, Green Info-Urban Style sheds light on critical issues affecting urban populations while inspiring actionable change.
                     </p>
-                    <p className="text-gray-300">
+                    <p className="text-xl text-gray-300">
                       Robert's work is driven by a commitment to sustainability, community empowerment, and innovative solutions that create lasting impact. Whether through groundbreaking air purification technology or transformative conversations on his podcast, he remains dedicated to fostering healthier, more informed, and more resilient communities.
                     </p>
                   </div>
