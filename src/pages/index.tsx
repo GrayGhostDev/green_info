@@ -90,9 +90,12 @@ const Home: NextPage = () => {
             <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_3px_3px_12px_rgb(0_0_0_/_100%),_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000]">
               Bridging the Gap between Communities and Green Space
             </h1>
-            <p className="text-2xl sm:text-3xl text-gray-300 mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_2px_2px_3px_rgb(0_0_0_/_100%)]">
-              Connecting communities with sustainable solutions that promote environmental awareness and green living.
-            </p>
+            <div className="relative">
+              <div className="absolute inset-0 bg-black/60 blur-sm rounded-lg"></div>
+              <p className="relative text-2xl sm:text-3xl text-white mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_100%),_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] font-semibold px-4 py-2 rounded-lg">
+                Connecting communities with sustainable solutions that promote environmental awareness and green living.
+              </p>
+            </div>
           </div>
         </header>
 
