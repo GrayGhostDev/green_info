@@ -179,14 +179,6 @@ export default function Community() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredTopics.map((topic) => (
                 <div key={topic.id} className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300 hover:scale-102">
-                  <div className="relative h-48 w-full">
-                    <Image
-                      src={topic.image}
-                      alt={topic.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#00A651]/20 text-[#00A651]">
