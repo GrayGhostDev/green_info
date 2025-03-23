@@ -73,7 +73,7 @@ const Home: NextPage = () => {
           {/* Brick Wall Background using original image */}
           <div className="absolute inset-0 w-full h-full">
             <div 
-              className="w-full h-full opacity-60"
+              className="w-full h-full opacity-40"
               style={{
                 backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
                 backgroundSize: 'cover',
