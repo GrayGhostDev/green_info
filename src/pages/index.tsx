@@ -70,12 +70,12 @@ const Home: NextPage = () => {
           {/* Base gradient background */}
           <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-70" />
           
-          {/* Brick Wall Background using original image */}
+          {/* Brick Wall Background using new image */}
           <div className="absolute inset-0 w-full h-full">
             <div 
               className="w-full h-full opacity-40"
               style={{
-                backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
+                backgroundImage: `url(${withBasePath("/images/background-made-from-bricks.jpg")})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'repeat'
