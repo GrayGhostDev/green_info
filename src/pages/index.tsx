@@ -68,20 +68,23 @@ const Home: NextPage = () => {
         {/* Background Layers */}
         <div className="absolute inset-0">
           {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-80" />
           
-          {/* Brick Wall Background using original image */}
+          {/* Brick Wall Background with darker contrast */}
           <div className="absolute inset-0 w-full h-full">
             <div 
-              className="w-full h-full opacity-40"
+              className="w-full h-full opacity-30"
               style={{
                 backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundRepeat: 'repeat'
+                backgroundRepeat: 'repeat',
+                filter: 'contrast(1.2) brightness(0.8)'
               }}
             />
           </div>
+          {/* Additional darkening overlay */}
+          <div className="absolute inset-0 bg-black opacity-20" />
         </div>
 
         {/* Header Section - Enhanced contrast */}
