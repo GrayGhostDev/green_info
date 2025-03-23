@@ -6,7 +6,6 @@ import { StarIcon, ShareIcon, ForwardIcon, BackwardIcon } from '@heroicons/react
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import Head from 'next/head'
 import { withBasePath } from '../utils/basePath'
-import PodcastScene from '../components/PodcastScene'
 
 interface Comment {
   id: number
@@ -307,11 +306,6 @@ export default function Podcast() {
               className="w-full h-full object-cover opacity-40 fixed"
             />
           </div>
-        </div>
-
-        {/* 3D Scene */}
-        <div className="relative z-10">
-          <PodcastScene />
         </div>
 
         {/* Content */}
