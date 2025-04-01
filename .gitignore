@@ -34,3 +34,14 @@ next-env.d.ts
 
 # design files
 /CaLan Landing Kits/
+
+# Build output
+out/
+.next/
+dist/
+
+# Local environment files
+.env*.local
+
+# Dependency directories
+node_modules/
