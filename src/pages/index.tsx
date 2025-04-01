@@ -68,18 +68,14 @@ const Home: NextPage = () => {
         {/* Background Layers */}
         <div className="absolute inset-0">
           {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-50" />
           
           {/* Brick Wall Background */}
           <div className="absolute inset-0 w-full h-full">
-            <div 
-              className="w-full h-full opacity-40"
-              style={{
-                backgroundImage: `url(${withBasePath("/images/bricks.png")})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'repeat'
-              }}
+            <img
+              src={withBasePath("/images/GUIS_Bricks.jpg")}
+              alt="Brick Background"
+              className="w-full h-full object-cover opacity-60 fixed contrast-125 brightness-110"
             />
           </div>
         </div>
@@ -87,12 +83,12 @@ const Home: NextPage = () => {
         {/* Header Section - Enhanced contrast */}
         <header className="relative z-30 min-h-[70vh] flex items-center justify-center pt-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_3px_3px_12px_rgb(0_0_0_/_100%),_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000]">
+            <h1 className="text-6xl sm:text-8xl font-bold tracking-tight text-[#00A651] mb-4 font-graffiti animate-fadeIn opacity-0 [animation-fill-mode:forwards] [text-shadow:_4px_4px_14px_rgb(0_0_0_/_100%),_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000]">
               Bridging the Gap between Communities and Green Space
             </h1>
             <div className="relative">
-              <div className="absolute inset-0 bg-black/60 blur-sm rounded-lg"></div>
-              <p className="relative text-2xl sm:text-3xl text-white mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_100%),_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] font-semibold px-4 py-2 rounded-lg">
+              <div className="absolute inset-0 bg-black/70 blur-sm rounded-lg"></div>
+              <p className="relative text-2xl sm:text-3xl text-white mb-4 max-w-3xl mx-auto animate-fadeIn opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_100%)] font-bold px-4 py-2 rounded-lg">
                 Connecting communities with sustainable solutions that promote environmental awareness and green living.
               </p>
             </div>
@@ -104,17 +100,17 @@ const Home: NextPage = () => {
           {/* Focus Areas Section */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="text-center mb-8">
-              <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-2">Our Focus Areas</h2>
-              <p className="text-2xl text-gray-300">Driving sustainable change through innovation and community engagement</p>
+              <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-2 [text-shadow:_2px_2px_8px_rgb(0_0_0_/_100%)]">Our Focus Areas</h2>
+              <p className="text-2xl text-white font-semibold [text-shadow:_1px_1px_3px_rgb(0_0_0_/_100%)]">Driving sustainable change through innovation and community engagement</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {categories.map((category) => (
-                <div key={category.name} className="bg-black/30 backdrop-blur-sm rounded-xl p-6 hover:bg-black/40 transition-all duration-300 hover:scale-105">
+                <div key={category.name} className="bg-black/40 backdrop-blur-sm rounded-xl p-6 hover:bg-black/50 transition-all duration-300 hover:scale-105">
                   <div className="h-12 w-12 bg-[#00A651]/20 rounded-xl flex items-center justify-center mb-4">
                     {category.icon}
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-2">{category.name}</h3>
-                  <p className="text-gray-300">{category.description}</p>
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-2 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">{category.name}</h3>
+                  <p className="text-gray-100">{category.description}</p>
                 </div>
               ))}
             </div>
@@ -124,8 +120,8 @@ const Home: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-6">Podcast</h2>
-                <p className="text-xl text-gray-300 mb-8">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
+                <h2 className="text-5xl sm:text-6xl font-bold text-[#00A651] mb-6 [text-shadow:_2px_2px_8px_rgb(0_0_0_/_100%)]">Podcast</h2>
+                <p className="text-xl text-white font-semibold mb-8 [text-shadow:_1px_1px_3px_rgb(0_0_0_/_100%)]">Join us for insightful discussions on urban sustainability, green technology, and community development.</p>
                 <div className="flex gap-4 justify-center lg:justify-start">
                   <a
                     href="/podcast"

@@ -256,6 +256,31 @@ export default function About() {
                   </div>
                 </div>
               </div>
+
+              {/* Jason Cole's Profile */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 hover:bg-black/40 transition-all duration-300 mt-8">
+                <div className="flex flex-col lg:flex-row gap-8 items-center">
+                  <div className="lg:w-1/3">
+                    <div className="relative w-64 h-64 mx-auto">
+                      <img
+                        src={withBasePath("/images/Fwd_ GIUS PICS/20241218_152321.jpg")}
+                        alt="Jason Cole"
+                        className="w-full h-full object-cover rounded-full border-4 border-[#00A651] object-top"
+                      />
+                    </div>
+                    <h3 className="text-3xl font-bold text-[#00A651] text-center mt-4">Jason Cole</h3>
+                    <p className="text-xl text-gray-300 text-center">Economic Development Strategist</p>
+                  </div>
+                  <div className="lg:w-2/3">
+                    <p className="text-xl text-gray-300 mb-4">
+                      Jason Cole is a seasoned economic development strategist, real estate developer, and community empowerment advocate with over three decades of experience. As the National Executive Director of several influential minority contractors and real estate associations, Jason has led major diversity and inclusion initiatives across Detroit and the nation. Currently serving as Vice President at Commercial Financial Specialists LLC and Barno Cole Land Development Group, they have organized over $10 million in capital for commercial and residential real estate projects.
+                    </p>
+                    <p className="text-xl text-gray-300 mb-4">
+                      Founder of Funding Roots, a crowd-capital platform supporting Detroit-based development under the JOBS and Mile Acts, Jason Cole is also a small-scale developer with Cole Development Group, advancing missing-middle and workforce housing projects. A certified facilitator and SBA-recognized specialist, they have trained thousands through real estate, financial literacy, and entrepreneurial programs. Their dedication to equitable development has earned recognition from Corp! Magazine and the Women's Informal Network, among others.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Team Section */}
@@ -266,7 +291,7 @@ export default function About() {
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 mb-12 hover:bg-black/40 transition-all duration-300">
                 <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-lg">
                   <img
-                    src={withBasePath("/images/Fwd_ GIUS PICS/20241218_152321.jpg")}
+                    src={withBasePath("/images/Fwd_ GIUS PICS/20241019_134006.jpg")}
                     alt="Green Info Urban Style Team"
                     className="w-full h-full object-cover"
                   />
@@ -285,9 +310,9 @@ export default function About() {
                   <div className="flex flex-col items-center mb-4">
                     <div className="w-32 h-32 mb-4">
                       <img
-                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153950.jpg")}
-                        alt="Team Member"
-                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                        src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+                        alt="Donald T. Robinson II"
+                        className="w-full h-full object-contain rounded-full border-2 border-[#00A651]"
                       />
                     </div>
                     <h3 className="text-xl font-semibold text-[#00A651] mb-1">Donald T. Robinson II</h3>
@@ -303,9 +328,9 @@ export default function About() {
                   <div className="flex flex-col items-center mb-4">
                     <div className="w-32 h-32 mb-4">
                       <img
-                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153904.jpg")}
-                        alt="Team Member"
-                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                        src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+                        alt="Sarah Johnson"
+                        className="w-full h-full object-contain rounded-full border-2 border-[#00A651]"
                       />
                     </div>
                     <h3 className="text-xl font-semibold text-[#00A651] mb-1">Sarah Johnson</h3>
@@ -321,9 +346,9 @@ export default function About() {
                   <div className="flex flex-col items-center mb-4">
                     <div className="w-32 h-32 mb-4">
                       <img
-                        src={withBasePath("/images/Fwd_ GIUS PICS/20241106_153834.jpg")}
-                        alt="Team Member"
-                        className="w-full h-full object-cover rounded-full border-2 border-[#00A651]"
+                        src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+                        alt="Michael Thompson"
+                        className="w-full h-full object-contain rounded-full border-2 border-[#00A651]"
                       />
                     </div>
                     <h3 className="text-xl font-semibold text-[#00A651] mb-1">Michael Thompson</h3>
