@@ -80,6 +80,15 @@ const Home: NextPage = () => {
           </div>
         </div>
 
+        {/* Large Logo Overlay */}
+        <div className="absolute left-0 top-0 w-[20%] max-w-[500px] h-auto z-20 opacity-30">
+          <img
+            src={withBasePath("/images/greenInfo_Logo.pdf.png")}
+            alt="Green Info Logo"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
         {/* Header Section - Enhanced contrast */}
         <header className="relative z-30 min-h-[70vh] flex items-center justify-center pt-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

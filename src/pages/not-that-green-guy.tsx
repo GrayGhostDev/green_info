@@ -12,8 +12,6 @@ interface Comment {
   timestamp: string
 }
 
-const STORAGE_KEY = 'gius_comments'
-
 const NotThatGreenGuy: NextPage = () => {
   const [comments, setComments] = useState<Comment[]>([])
   const [newComment, setNewComment] = useState({
@@ -25,27 +23,24 @@ const NotThatGreenGuy: NextPage = () => {
   const [error, setError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
-  // Load comments from localStorage on component mount
+  // Fetch comments on component mount
   useEffect(() => {
-    try {
-      const savedComments = localStorage.getItem(STORAGE_KEY)
-      if (savedComments) {
-        setComments(JSON.parse(savedComments))
-      }
-    } catch (err) {
-      console.error('Error loading comments:', err)
-      setError('Failed to load comments')
-    }
+    fetchComments()
   }, [])
 
-  // Save comments to localStorage whenever they change
-  useEffect(() => {
+  const fetchComments = async () => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(comments))
+      const response = await fetch('/api/comments')
+      if (!response.ok) {
+        throw new Error('Failed to fetch comments')
+      }
+      const data = await response.json()
+      setComments(data)
     } catch (err) {
-      console.error('Error saving comments:', err)
+      console.error('Error fetching comments:', err)
+      setError('Failed to load comments. Please try again later.')
     }
-  }, [comments])
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -62,15 +57,23 @@ const NotThatGreenGuy: NextPage = () => {
     setSuccessMessage(null)
 
     try {
-      // Create new comment
-      const newCommentObj: Comment = {
-        id: Date.now().toString(),
-        ...newComment,
-        timestamp: new Date().toISOString()
+      const response = await fetch('/api/comments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newComment),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to post comment')
       }
+
+      const data = await response.json()
       
-      // Add to comments list
-      setComments(prev => [newCommentObj, ...prev])
+      // Update comments list with new comment
+      setComments(prev => [data, ...prev])
       
       // Reset form
       setNewComment({
@@ -140,117 +143,93 @@ const NotThatGreenGuy: NextPage = () => {
               </p>
             </div>
 
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-              {/* Comment Form Section */}
-              <div className="lg:sticky lg:top-24 lg:h-fit">
-                <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 shadow-xl border border-white/10">
-                  <h2 className="text-3xl font-bold text-[#00A651] mb-6 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">Share Your Thoughts</h2>
-                  
-                  {/* Error Message */}
-                  {error && (
-                    <div className="bg-red-500/20 border border-red-500/50 text-white p-4 rounded-lg mb-6 animate-fadeIn">
-                      {error}
-                    </div>
-                  )}
-                  
-                  {/* Success Message */}
-                  {successMessage && (
-                    <div className="bg-green-500/20 border border-green-500/50 text-white p-4 rounded-lg mb-6 animate-fadeIn">
-                      {successMessage}
-                    </div>
-                  )}
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label htmlFor="name" className="block text-white font-semibold mb-2">Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={newComment.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent transition-all duration-200"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-white font-semibold mb-2">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={newComment.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent transition-all duration-200"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="comment" className="block text-white font-semibold mb-2">Comment</label>
-                      <textarea
-                        id="comment"
-                        name="comment"
-                        value={newComment.comment}
-                        onChange={handleInputChange}
-                        required
-                        rows={4}
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent transition-all duration-200 resize-y"
-                        placeholder="Share your thoughts..."
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-[#00A651] text-white font-semibold py-4 px-6 rounded-lg hover:bg-[#00A651]/90 transition-all duration-300 disabled:opacity-50 transform hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100"
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Posting...
-                        </span>
-                      ) : 'Post Comment'}
-                    </button>
-                  </form>
-                </div>
+            {/* Comments Section */}
+            <div className="max-w-4xl mx-auto">
+              {/* Comment Form */}
+              <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 mb-12">
+                <h2 className="text-3xl font-bold text-white mb-6 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">Leave a Comment</h2>
+                
+                {/* Error Message */}
+                {error && (
+                  <div className="bg-red-500/20 border border-red-500/50 text-white p-4 rounded-lg mb-6">
+                    {error}
+                  </div>
+                )}
+                
+                {/* Success Message */}
+                {successMessage && (
+                  <div className="bg-green-500/20 border border-green-500/50 text-white p-4 rounded-lg mb-6">
+                    {successMessage}
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-white font-semibold mb-2">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={newComment.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-white font-semibold mb-2">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={newComment.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="comment" className="block text-white font-semibold mb-2">Comment</label>
+                    <textarea
+                      id="comment"
+                      name="comment"
+                      value={newComment.comment}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#00A651] focus:border-transparent"
+                      placeholder="Share your thoughts..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#00A651] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#00A651]/90 transition-all duration-300 disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Posting...' : 'Post Comment'}
+                  </button>
+                </form>
               </div>
 
-              {/* Comments Display Section */}
+              {/* Comments Display */}
               <div className="space-y-6">
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-3xl font-bold text-[#00A651] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">Community Discussion</h2>
-                  <span className="text-white bg-black/40 px-4 py-2 rounded-full text-sm">
-                    {comments.length} {comments.length === 1 ? 'Comment' : 'Comments'}
-                  </span>
-                </div>
-                
+                <h2 className="text-3xl font-bold text-white mb-6 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">Comments</h2>
                 {comments.length === 0 ? (
-                  <div className="bg-black/30 backdrop-blur-sm rounded-xl p-8 text-center border border-white/10">
-                    <svg className="w-16 h-16 text-[#00A651]/50 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                    <p className="text-white text-xl font-semibold mb-2">No Comments Yet</p>
-                    <p className="text-gray-400">Be the first to start the conversation!</p>
-                  </div>
+                  <p className="text-white text-center py-8">Be the first to comment!</p>
                 ) : (
-                  <div className="space-y-4">
-                    {comments.map(comment => (
-                      <div key={comment.id} className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:bg-black/40">
-                        <div className="flex justify-between items-start mb-4">
-                          <div>
-                            <h3 className="text-xl font-semibold text-[#00A651] [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">{comment.name}</h3>
-                            <p className="text-gray-400 text-sm">{formatTimestamp(comment.timestamp)}</p>
-                          </div>
+                  comments.map(comment => (
+                    <div key={comment.id} className="bg-black/30 backdrop-blur-sm rounded-xl p-6">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-white [text-shadow:_1px_1px_2px_rgb(0_0_0_/_100%)]">{comment.name}</h3>
+                          <p className="text-gray-400 text-sm">{formatTimestamp(comment.timestamp)}</p>
                         </div>
-                        <p className="text-white leading-relaxed">{comment.comment}</p>
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-white">{comment.comment}</p>
+                    </div>
+                  ))
                 )}
               </div>
             </div>
