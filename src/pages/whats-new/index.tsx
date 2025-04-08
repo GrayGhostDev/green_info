@@ -81,7 +81,7 @@ const gardeningArticles = [
     title: 'Starting Your Community Garden',
     date: 'March 15, 2024',
     description: 'A comprehensive guide to initiating and managing a successful community garden project.',
-    image: '/images/Fwd_ GIUS PICS/20241106_153911.jpg',
+    image: '/images/Fwd_ GIUS PICS/20241120_153523.jpg',
     category: 'Community'
   },
   {

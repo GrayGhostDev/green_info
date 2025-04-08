@@ -369,9 +369,9 @@ export default function About() {
                 <p className="text-gray-300 mb-6">
                   Want to learn more about our initiatives or get involved? We'd love to hear from you.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex justify-center gap-4">
                   <a
-                    href="mailto:contact@greeninfourbanstyle.com"
+                    href="/contact"
                     className="inline-block px-6 py-3 bg-[#00A651] text-white rounded-xl font-semibold hover:bg-[#00A651]/90 transition-all duration-300 hover:scale-105"
                   >
                     Contact Us
@@ -382,7 +382,7 @@ export default function About() {
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition-all duration-300 hover:scale-105"
                   >
-                    Donate Now
+                    Donate
                   </a>
                 </div>
               </div>

@@ -246,13 +246,16 @@ export default function Services() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="mailto:rlb01@svbots.com"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                href="/contact"
+                className="rounded-md bg-[#00A651] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#00A651]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Contact Us
               </a>
-              <a href="tel:866-778-3268" className="text-sm font-semibold leading-6 text-white">
-                Call 866-778-3268 <span aria-hidden="true">→</span>
+              <a
+                href="tel:866-778-3268"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Call (866) 778-3268 <span aria-hidden="true">→</span>
               </a>
             </div>
             <svg

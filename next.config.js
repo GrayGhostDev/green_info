@@ -12,9 +12,9 @@ const nextConfig = {
   // Add asset prefix for production
   assetPrefix: process.env.NODE_ENV === 'production' ? '/green_info' : '',
   // Disable server components
-  experimental: {
-    appDir: false,
-  },
+  // experimental: {
+  //   appDir: false,
+  // },
 }
 
 module.exports = nextConfig 
